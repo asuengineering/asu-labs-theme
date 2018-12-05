@@ -1,0 +1,18 @@
+html,
+button,
+input,
+select,
+optgroup,
+textarea,
+.pure-g [class *= "pure-u"] {
+	color: $color__text-main;
+	font-family: $font__main;
+	@include font-size(1);
+	line-height: $font__line-height-body;
+}
+
+@import "headings";
+
+@import "copy";
+
+@import "sitename-header";

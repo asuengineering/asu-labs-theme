@@ -1,0 +1,135 @@
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0 0 1.5em;
+}
+
+.updated:not(.published) {
+	display: none;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+
+// Single posts. Specific to native post feature.
+.single-post {
+	.entry-header {
+		display:flex;
+		flex-direction: column;
+		align-items:center;
+		background-color:#f0f0f0;
+		padding:2em 0;
+	}
+}
+
+// Single posts + default rules for any single-{}.php page.
+.single {
+
+	.post-thumbnail, .entry-title, .entry-meta {
+		@include max-width;
+	}
+
+	.entry-title {
+		@include font-size(3);
+		margin-top:0;
+		margin-bottom:0;
+		padding:.3em 0;
+	}
+
+	.entry-meta {
+		border-top:1px solid #b2b2b2;
+		margin-top:.5em;
+		padding-top:.5em;
+
+		svg {
+			margin-right:10px;
+		}
+
+		> span:after {
+			content:"|";
+			padding:0 20px;
+		}
+
+		> span:last-child:after {
+			content:"";
+		}
+	}
+
+	.entry-content, .breadcrumbs, #comments {
+		display:block;
+		margin:0 auto;
+		@include max-width;
+	}
+}
+
+// Page Pages
+.page {
+	.entry-header {
+		display:flex;
+		flex-direction: column;
+		align-items:center;
+		background-color:#f0f0f0;
+		padding:2em 0;
+	}
+
+	.post-thumbnail, .entry-title, .entry-meta {
+		@include max-width;
+	}
+
+	.entry-title {
+		@include font-size(3);
+		margin-top:0;
+		margin-bottom:0;
+		padding:.3em 0;
+	}
+
+	.entry-meta {
+		border-top:1px solid #b2b2b2;
+		margin-top:.5em;
+		padding-top:.5em;
+		display:flex;
+		flex-wrap:nowrap;
+		justify-content: flex-end;
+
+		.breadcrumbs {
+			flex:1 1 auto; 
+			align-self: flex-start;
+		}
+
+		svg {
+			margin-right:10px;
+		}
+
+		&-group > span:after {
+			content:"|";
+			padding:0 20px;
+		}
+
+		&-group > span:last-child:after {
+			content:"";
+			padding-right:0;
+		}
+	}
+
+	.entry-content, #comments {
+		display:block;
+		margin:0 auto;
+		@include max-width;
+	}
+}
+
+.home.page .entry-meta {
+	display:none;
+}
+

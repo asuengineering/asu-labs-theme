@@ -1,0 +1,140 @@
+#masthead {
+	.site-title {
+		font-size:1.5em;
+		font-weight: 500;
+		background-color:#8c1d40;
+		padding:10px 20px;
+		margin: .75em -.25em 0 0;
+
+		a {
+			color:#ffffff;
+			text-decoration: none;
+		}
+	}
+
+	.site-description {
+		margin: 0 -.25em 0 0;
+		color: #333333;
+		background-color: #ffc627;
+		font-size: 120%;
+		font-weight: 500;
+		padding: 5px 20px;
+	}
+
+}
+
+/* Navigation Styling, from PureCSS */
+#menu {
+
+	.pure-menu-active>.pure-menu-link,
+	.pure-menu-link:focus,
+	.pure-menu-link:hover {
+		background-color: #000000;
+	}
+
+    /* All anchors inside the menu should be styled like this. */
+	a {
+        color: #f1f1f1;
+        border: none;
+        padding: 0.6em 0 0.6em 0.6em;
+		font-size:16px;
+		font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		font-weight:500;
+    }
+
+    /* Remove all background/borders, since we are applying them to #menu. */
+    .pure-menu {
+		border: none;
+		background: transparent;
+
+		ul {
+			border: none;
+			background: transparent;
+		}
+
+		/*  For top level, active links */
+		.current-menu-item > a,
+		.current-menu-parent > a {
+			color:#FFB310;
+			background: #000000;
+		}
+
+		.pure-menu-children {
+			background-color:#1f1f1f;
+			display:none;
+
+			& > .current-menu-item > a {
+				color:#f1f1f1;
+			}
+
+			.menu-item {
+				border-left:2px solid #f1f1f1;
+			}
+
+			& > .menu-item > a {
+				padding-left:25px;
+			}
+		}
+	}
+
+	
+	// Override flyouts from original library.
+	.pure-menu-item .pure-menu-item {
+		display: block;
+	}
+
+	.pure-menu-children {
+		display: block;
+		position: inherit;
+		left: auto;
+		top: auto;
+		margin: 0;
+		padding: 0;
+		z-index: auto;
+	}
+
+	.pure-menu-allow-hover:hover > .pure-menu-children,
+	.pure-menu-active > .pure-menu-children {
+		display: block;
+		position: inherit;
+	}
+
+}
+
+/*************************************************/
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+@media screen and (min-width: 37.5em) {
+	.menu-toggle {
+		display: none;
+	}
+	.main-navigation ul {
+		display: block;
+	}
+}
+
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+
+	.site-main & {
+		margin: 0 0 1.5em;
+		overflow: hidden;
+	}
+
+	.nav-previous {
+		float: left;
+		width: 50%;
+	}
+
+	.nav-next {
+		float: right;
+		text-align: right;
+		width: 50%;
+	}
+}

@@ -1,0 +1,86 @@
+.archive {
+	.page-header {
+		display:flex;
+		flex-direction: column;
+		align-items:center;
+		padding:1em 0 2em 0;
+
+		h1 {
+			@include max-width;
+			margin:0 auto;
+		}
+	}
+
+    .post {
+        display: flex;
+        justify-content: flex-start;
+
+        @include max-width;
+		margin:0 auto 2em auto;
+        padding:1em;
+        border-left:20px solid #ffffff;
+        border-right:50px solid #ffffff;
+
+        background: rgb(255,198,39);
+        background: linear-gradient(180deg, rgba(255,198,39,0.65) 0%, rgba(255,198,39,1) 50%);
+        // background: radial-gradient(circle, rgba(255,198,39,1) 0%, rgba(255,198,39,0.7) 90%);
+        
+        .entry-header {
+            flex: 1 0;
+            position:relative;
+            right:2em;
+
+            img {
+                border:2px solid transparent;
+            
+                &:hover {
+                    border: 2px solid $color__link;
+                }
+            }
+        }
+
+        .entry-content {
+            flex:2;
+            margin-top:0;
+
+            display:flex;
+            flex-direction: column;
+            justify-content: flex-start;
+
+            .entry-title {
+                margin:0;
+            }
+        }
+
+        .entry-meta {
+            padding:.5em .75em;
+            color:#ffffff;
+            background-color:#000000;
+            font-weight:500;
+            text-align: right;
+            align-self: flex-end;
+            margin-top:auto;
+            left:2em;
+            position: relative;
+
+            svg {
+                margin-right:10px;
+            }
+
+            > span:after {
+                content:"|";
+                padding:0 20px;
+            }
+
+            > span:last-child:after {
+                content:"";
+                padding:0;
+            }
+        }
+    }
+
+    .posts-navigation {
+        @include max-width;
+		margin:0 auto 2em auto;
+    }
+}

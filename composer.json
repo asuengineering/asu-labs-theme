@@ -1,0 +1,6 @@
+{
+    "require": {
+        "justintadlock/hybrid-breadcrumbs": "^1.0",
+        "htmlburger/carbon-fields-plugin": "^2.2"
+    }
+}

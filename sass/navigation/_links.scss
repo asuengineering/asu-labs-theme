@@ -1,0 +1,40 @@
+.content-area a {
+	color: $color__link;
+	border-bottom: 1px dotted #8c1d40;
+	text-decoration: none;
+	transition: all 0.25s ease-in-out 0s;
+
+	&:visited {
+		color: $color__link-visited;
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color__link-hover;
+	}
+	&:focus {
+		outline: thin dotted;
+	}
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}
+
+.archive #content h2.entry-title {
+	& a:visited,
+	& a:hover,
+	& a:focus,
+	& a:active {
+		color: $color__link;
+	}
+}
+
+.post-type-archive-person #content h2.entry-title {
+	& a:visited,
+	& a:hover,
+	& a:focus,
+	& a:active {
+		color: #ffffff;
+	}
+}

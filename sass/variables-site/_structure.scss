@@ -1,0 +1,50 @@
+/* CSS Grid Layout for the whole site. */
+
+#page {
+  display: grid;
+
+  grid-template-areas:
+  "global-header global-header"
+  "navigation content"
+	"global-footer global-footer";
+
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 110px 1fr 105px;
+  grid-gap: 0;
+
+  height: 100vh;
+}
+
+#asu-global-header {
+	grid-area: global-header;
+}
+
+#masthead {
+	grid-area: navigation;
+	z-index: 1000; /* so the menu or its navicon stays above all content */
+	background: #353535;
+}
+
+#content {
+  grid-area: content;
+}
+
+#page #innovation-footer {
+	grid-area: global-footer;
+	position: relative; /* Overrides default CSS from the ASU Module */
+}
+
+/* Collapse everything into a single columm */
+@media (max-width: 768px) {
+  #page {
+    grid-template-areas:
+      "global-header"
+      "content"
+      "navigation"
+      "global-footer";
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto auto;
+  }
+
+}
