@@ -165,15 +165,3 @@ function asufaculty_remove_archive_term_label( $title ) {
     return $title;
 }
 add_filter( 'get_the_archive_title', 'asufaculty_remove_archive_term_label' );
-
-
-// Address visibility problem with Carbon Fields and the latest (beta) version of Gutenberg.
-function asufaculty_make_carbonfields_great_again() {
-	echo '<style>
-	.edit-post-layout__metaboxes #poststuff .carbon-box,
-	.edit-post-layout__metaboxes #poststuff .spinner.disabled {
-		display: block;
-	}
-	</style>';
-}
-add_action('admin_head', 'asufaculty_make_carbonfields_great_again');

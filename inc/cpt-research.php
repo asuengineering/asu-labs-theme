@@ -160,7 +160,6 @@ function asufaculty_create_publications_cpt() {
 		'publicly_queryable'    => true,
 		'capability_type'       => 'page',
 		'show_in_rest'          => true,
-		// set to true to enable Gutenberg
 	);
 	register_post_type( 'publication', $args );
 
@@ -221,7 +220,6 @@ function asufaculty_register_person_cpt() {
 		'capability_type'       => 'page',
 		'has_archive' 			=> 'people',
 		'show_in_rest'          => true,
-		// set to true to enable Gutenberg
 	);
 	register_post_type( 'person', $args );
 
