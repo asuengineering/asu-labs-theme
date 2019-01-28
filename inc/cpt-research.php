@@ -130,7 +130,7 @@ function asufaculty_create_publications_cpt() {
 		'search_items'          => __( 'Search Publication', 'text_domain' ),
 		'not_found'             => __( 'Not found', 'text_domain' ),
 		'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
-		'featured_image'        => __( 'Publication (PDF)', 'text_domain' ),
+		'featured_image'        => __( 'Publication (Image)', 'text_domain' ),
 		'set_featured_image'    => __( 'Set attachment', 'text_domain' ),
 		'remove_featured_image' => __( 'Remove attachment', 'text_domain' ),
 		'use_featured_image'    => __( 'Use as attachment', 'text_domain' ),
@@ -144,7 +144,7 @@ function asufaculty_create_publications_cpt() {
 		'label'                 => __( 'Publication', 'text_domain' ),
 		'description'           => __( 'A publication associated with a lab group or faculty member', 'text_domain' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes', 'sticky' ),
+		'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'excerpt', 'custom-fields', 'page-attributes', 'sticky' ),
 		'taxonomies'            => array( 'publication-date', 'research-theme' ),
 		'hierarchical'          => false,
 		'public'                => true,
@@ -155,7 +155,9 @@ function asufaculty_create_publications_cpt() {
 		'show_in_admin_bar'     => true,
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
-		'has_archive'           => true,
+		// When/if we are ready to build an archive page for this CPT, uncomment this and delete the following line.
+		// 'has_archive' 		=> 'publications',
+		'has_archive'           => false,
 		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
 		'capability_type'       => 'page',
@@ -367,11 +369,12 @@ function asufaculty_carbonfields_register_facultycpt_meta() {
             Field::make( 'text', 'person_suffix', 'Suffix' )->set_width( 10 ),
 			Field::make( 'text', 'person_tagline', 'Personal tagline' )
 				->set_help_text('Displays under name on single person view.'),
-			Field::make( 'text', 'person_isearch', 'iSearch Profile' ),
 			Field::make( 'text', 'person_email', 'Email Address' )->set_width( 30  ),
             Field::make( 'text', 'person_phone', 'Phone Number' )->set_width( 20 ),
             Field::make( 'text', 'person_location', 'Building / Location' )->set_width( 20 ),
 			Field::make( 'text', 'person_location_url', 'Map URL' )->set_width( 30 ),
+			Field::make( 'text', 'person_isearch', 'iSearch Profile' )
+				->set_help_text('Value is required to display any of the social media links/icons below.'),
 			Field::make( 'text', 'person_facebook', 'Facebook URL' )->set_width( 50  ),
             Field::make( 'text', 'person_twitter', 'Twitter URL' )->set_width( 50  ),
             Field::make( 'text', 'person_linkedin', 'LinkedIn URL' )->set_width( 50  ),
@@ -402,16 +405,20 @@ function asufaculty_carbonfields_register_facultycpt_meta() {
 			Field::make( 'text', 'research_sponsor', 'If the project was sponsored by a company, provide those details here.' )
 				->set_width( 50 )
 				->set_help_text( 'Inline HTML styles like strong and a are allowed.' ),
-			Field::make('checkbox', 'research_opportunity', 'Opportunity to participate?' )
-				->set_option_value( 'yes' )
-				->set_default_value( '' )
-				->set_help_text( 'Checking this box will mark this research project as an available opportunity for student participation.' )
-				->set_width( 50 ),
+			// TBD: Develop feature which marks the research project as an opportunity for people to participate in.
+			// Could enable an RFI like form for those not enrolled as an ASU student, or a form to contact someone within the campus for additional details.
+			// Gathering all of these ideas together results in the opportunities section located at https://undergraduate-research.engineering.asu.edu/
+				// Field::make('checkbox', 'research_opportunity', 'Opportunity to participate?' )
+				// ->set_option_value( 'yes' )
+				// ->set_default_value( '' )
+				// ->set_help_text( 'Checking this box will mark this research project as an available opportunity for student participation.' )
+				// ->set_width( 50 ),
 			Field::make('select', 'research_project_status', 'What is the current status of this research project?')
 				->set_width( 50 )
 				->add_options('asufaculty_research_status_options'),
 			Field::make( 'file', 'research_poster', 'Research Poster (PDF only)' )
-				->set_help_text('This is different than the featured image for the project.  which should be a photo for best display.')
+				->set_width( 50 )
+				->set_help_text('This is different than the featured image for the project which should be a photo for best display.')
 				->set_type( 'pdf' )
 				->set_value_type ('url')
 	));
@@ -420,19 +427,19 @@ function asufaculty_carbonfields_register_facultycpt_meta() {
         ->where( 'post_type', '=', 'publication' )
         ->set_context( 'normal' )
         ->add_fields( array(
-			Field::make( 'checkbox', 'publication_featured', 'Display this publication as a key publication for the associated research theme.' )
-				->set_help_text('Checking this box will provide a more detailed look at this publication at the top of the research theme page.')
-				->set_option_value( 'yes' )
-				->set_default_value( '' ),
-			Field::make( 'rich_text', 'publication_citation', 'Copy/paste the whole citation for this publication here.' ),
+			Field::make( 'rich_text', 'publication_citation', 'Publication Citation' )
+				->set_help_text ('Copy/paste the whole citation for this publication here. Format the entry with italics, bold of external links as needed.')
+				->set_width( 50 ),
 			Field::make( 'date', 'publication_date', 'Publication Date')
 				->set_attribute( 'placeholder', 'Publication Date' )
   				->set_input_format( 'n/j/Y', 'n/j/Y' )
-				->set_width( 50 )
-				->set_help_text ('Type a date using m/d/y format.'),
-			Field::make( 'html', 'publication_content_suggestion')
-				->set_html('<p>Use the page editor space above for a short summary of your publication. Feel free to summarize the entire article rather than just provide an abstract.</p><p>The title of the publication above will not be displayed to the public, but can be used as a reference to refer back to this entry later.</p>')
-				->set_width( 50 ),
+				->set_width( 25 )
+				->set_help_text ('Type a date using mm/dd/yyyy format.'),
+			Field::make( 'file', 'publication_download', 'Downloadable File' )
+				->set_width( 25 )
+				->set_help_text('Use an image of the PDF download as the featured image for the post. Link to the actual PDF here.')
+				->set_value_type ('url')
+
 	));
 	
 	Container::make ('term_meta', 'Research Theme Details')

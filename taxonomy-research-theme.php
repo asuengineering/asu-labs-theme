@@ -33,7 +33,51 @@ get_header();
                     ?> 
                 </div>
 			</header><!-- .page-header -->
-            <h2 class="article-label">Related Projects</h2>
+            
+			<?php 
+			// Make two post loops, one for each related CPT. More expensive, but also allows for better customization. 
+
+			$args_projects = array(
+				'post_type' => 'research',
+			);
+
+			$query_projects = new WP_Query( $args_projects );
+
+			if ( $query_projects->have_posts() ) {
+				echo '<h2 class="section-label">Related Projects</h2>';
+
+				// The Loop
+				while ( $query_projects->have_posts() ) {
+					$query_projects->the_post();
+					// Do loop stuff here. Call the template, mostly.
+					get_template_part( 'template-parts/research-all' );
+				}
+				
+				wp_reset_postdata();
+			}
+
+			$args_publications = array(
+				'post_type' => 'publication',
+			);
+
+			$query_publications = new WP_Query( $args_publications );
+
+			if ( $query_publications->have_posts() ) {
+				echo '<h2 class="section-label">Related Publications</h2>';
+				
+				// The 2nd Loop
+				while ( $query_publications->have_posts() ) {
+					$query_publications->the_post();
+					get_template_part( 'template-parts/publication-all' );
+				}
+
+				// Restore original Post Data
+				wp_reset_postdata();
+			}
+
+			?> 
+			
+			
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) :
@@ -44,7 +88,7 @@ get_header();
 				 * If you want to override this in a child theme, then include a file
 				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
 				 */
-				get_template_part( 'template-parts/research-all' );
+				
 
 			endwhile;
 

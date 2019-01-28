@@ -38,6 +38,11 @@
 
 	.post-thumbnail, .entry-title, .entry-meta {
 		@include max-width;
+
+		@include desktop-down {
+			padding-left: $desktop-padding;
+			padding-right: $desktop-padding;
+		}
 	}
 
 	.entry-title {
@@ -45,6 +50,11 @@
 		margin-top:0;
 		margin-bottom:0;
 		padding:.3em 0;
+
+		@include desktop-down {
+			padding-left: 32px;
+			padding-right: 32px;
+		}
 	}
 
 	.entry-meta {
@@ -70,6 +80,11 @@
 		display:block;
 		margin:0 auto;
 		@include max-width;
+
+		@include desktop-down {
+			padding-left: $desktop-padding;
+			padding-right: $desktop-padding;
+		}
 	}
 }
 
@@ -81,6 +96,11 @@
 		align-items:center;
 		background-color:#f0f0f0;
 		padding:2em 0;
+
+		@include desktop-down {
+			padding-left: $desktop-padding;
+			padding-right: $desktop-padding;
+		}
 	}
 
 	.post-thumbnail, .entry-title, .entry-meta {
@@ -126,6 +146,11 @@
 		display:block;
 		margin:0 auto;
 		@include max-width;
+
+		@include desktop-down {
+			padding-left: $desktop-padding;
+			padding-right: $desktop-padding;
+		}
 	}
 }
 

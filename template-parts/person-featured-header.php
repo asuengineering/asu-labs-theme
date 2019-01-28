@@ -97,10 +97,24 @@
         echo '<div class="isearch-profile"><div class="container">';
         echo '<a class="isearch-url" href="' . $isearch . '" target=_"blank" title="iSearch Profile link">' . $isearch . "</a>";
         echo '<span class="social">';
-        echo '<a class="icon" href="' . $social_fb . '" target="blank" title="Facebook"><i class="fab fa-facebook-square"></i></a>';
-        echo '<a class="icon" href="' . $social_tw . '" target="blank" title="Twitter"><i class="fab fa-twitter-square"></i></a>';
-        echo '<a class="icon" href="' . $social_li . '" target="blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a>';
-        echo '<a class="icon" href="' . $social_ig . '" target="blank" title="Instagram"><i class="fab fa-instagram"></i></a>';
-        echo '</span></div></div>';
+        
+        if (!empty($social_fb)) {
+            echo '<a class="icon" href="' . $social_fb . '" target="blank" title="Facebook"><i class="fab fa-facebook-square"></i></a>';
+        }
+
+        if (!empty($social_tw)) {
+            echo '<a class="icon" href="' . $social_tw . '" target="blank" title="Twitter"><i class="fab fa-twitter-square"></i></a>';
+        }
+
+        if (!empty($social_li)) {
+            echo '<a class="icon" href="' . $social_li . '" target="blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a>';
+        }
+
+        if (!empty($social_ig)) {
+            echo '<a class="icon" href="' . $social_ig . '" target="blank" title="Instagram"><i class="fab fa-instagram"></i></a>';
+        }
+        
+        echo '</span>';
+        echo '</div></div>';
     }
 ?>

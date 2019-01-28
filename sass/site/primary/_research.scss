@@ -9,7 +9,12 @@
             display:flex;
             flex-direction: row;
             align-items:center;
-            padding:1em 0;
+			padding:1em 0;
+			
+			@include desktop-down {
+				padding-left: $desktop-padding;
+				padding-right: $desktop-padding;
+			}
         }
 	}
 
@@ -62,6 +67,11 @@
 		justify-content:space-between;
 		@include max-width;
 		margin:0 auto;
+
+		@include desktop-down {
+            padding-left: $desktop-padding;
+            padding-right: $desktop-padding;
+        }
 
 		.content-container {
 			flex: 1 0 70%;

@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "edb8724f37af13b3b6d5f980adcd5005",
+    "content-hash": "de09060a380804c5fb92d071687fbc09",
     "packages": [
         {
             "name": "composer/installers",
@@ -128,16 +128,16 @@
         },
         {
             "name": "htmlburger/carbon-fields",
-            "version": "2.2.0",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/htmlburger/carbon-fields.git",
-                "reference": "f2e7e7b306f872b606b16909d2a2ee906381d5d1"
+                "reference": "9da8d25bd417cd3be7107ff0a53b4687a6818c6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/htmlburger/carbon-fields/zipball/f2e7e7b306f872b606b16909d2a2ee906381d5d1",
-                "reference": "f2e7e7b306f872b606b16909d2a2ee906381d5d1",
+                "url": "https://api.github.com/repos/htmlburger/carbon-fields/zipball/9da8d25bd417cd3be7107ff0a53b4687a6818c6c",
+                "reference": "9da8d25bd417cd3be7107ff0a53b4687a6818c6c",
                 "shasum": ""
             },
             "require": {
@@ -243,29 +243,39 @@
                     "name": "Viktor Vasilev",
                     "email": "liberalcho@gmail.com",
                     "role": "Developer"
+                },
+                {
+                    "name": "Georgi Georgiev",
+                    "email": "george.georgiev96@gmail.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Atanas Vasilev",
+                    "email": "atanasvasilev91@gmail.com",
+                    "role": "Developer"
                 }
             ],
             "description": "WordPress developer-friendly custom fields for post types, taxonomy terms, users, comments, widgets, options and more.",
             "homepage": "http://carbonfields.net/",
-            "time": "2018-03-16T09:06:14+00:00"
+            "time": "2018-12-20T15:26:51+00:00"
         },
         {
             "name": "htmlburger/carbon-fields-plugin",
-            "version": "2.2.0",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/htmlburger/carbon-fields-plugin.git",
-                "reference": "9aba1045fc35020b4525cf11d084d8a55600cdb9"
+                "reference": "091a672ac8904a5e852596d53fa78e6b98fb01ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/htmlburger/carbon-fields-plugin/zipball/9aba1045fc35020b4525cf11d084d8a55600cdb9",
-                "reference": "9aba1045fc35020b4525cf11d084d8a55600cdb9",
+                "url": "https://api.github.com/repos/htmlburger/carbon-fields-plugin/zipball/091a672ac8904a5e852596d53fa78e6b98fb01ef",
+                "reference": "091a672ac8904a5e852596d53fa78e6b98fb01ef",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "^1.0",
-                "htmlburger/carbon-fields": "2.2.0",
+                "htmlburger/carbon-fields": "3.0.0",
                 "php": ">=5.3"
             },
             "type": "wordpress-plugin",
@@ -286,20 +296,20 @@
             ],
             "description": "WordPress plugin loader for Carbon Fields.",
             "homepage": "http://carbonfields.net/",
-            "time": "2018-03-16T09:20:19+00:00"
+            "time": "2018-12-21T07:47:27+00:00"
         },
         {
             "name": "justintadlock/hybrid-breadcrumbs",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/justintadlock/hybrid-breadcrumbs.git",
-                "reference": "c8565cc91c58cf196a1567d4355d67f1274bc272"
+                "reference": "9e06be3b12ac3855b58f4c97f352c7916dd6f91b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justintadlock/hybrid-breadcrumbs/zipball/c8565cc91c58cf196a1567d4355d67f1274bc272",
-                "reference": "c8565cc91c58cf196a1567d4355d67f1274bc272",
+                "url": "https://api.github.com/repos/justintadlock/hybrid-breadcrumbs/zipball/9e06be3b12ac3855b58f4c97f352c7916dd6f91b",
+                "reference": "9e06be3b12ac3855b58f4c97f352c7916dd6f91b",
                 "shasum": ""
             },
             "require": {
@@ -328,7 +338,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2018-09-14T20:23:45+00:00"
+            "time": "2018-10-23T19:57:54+00:00"
         }
     ],
     "packages-dev": [],

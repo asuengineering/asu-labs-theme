@@ -11,25 +11,35 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
+	<header class="entry-header">
+		<?php 
+			// Use the download URL if it's set. Otherwise link the image back to the entry for the publication.
+			if (!empty(carbon_get_the_post_meta('publication_download'))) {
+				$pdf_link = carbon_get_the_post_meta('publication_download');
+			} else {
+				$pdf_link = esc_url( get_permalink());
+			}
+			
+			// Use the post thumbnail if there is one, or a placeholder image if not.
+			echo '<div class="post-thumbnail">';
+			echo '<a href="'.$pdf_link.'" target="_blank">';
+
+			if ( has_post_thumbnail() ) {
+				the_post_thumbnail('', array('class' => 'pure-img outline'));
+			} else {
+				echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) . '/images/document-placeholder.png"  class="pure-img wp-post-image" alt="report by Lil Squid from the Noun Project. See:https://thenounproject.com/term/report/149914">';
+			}
+			
+			echo '</a></div>';
+		?>
+    </header><!-- .entry-header -->
+
 	<div class="entry-content">
 		<?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
         <div class="citation">
 			<?php echo apply_filters( 'the_content', carbon_get_the_post_meta('publication_citation') );?>
 		</div>
-        <div class="entry-meta">
-            <?php echo get_the_term_list( $post->ID, 'research-theme', '<span><strong>Topic: </strong>', ', ' , '</span>'); ?>
-            <span class="permalink"><a href="<?php the_permalink(); ?>">Details</a></span>
-            <?php 
-				if ( has_post_thumbnail() ) {
-					$featured_img_url = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()));
-					echo '<span class="attachment-link">';
-					echo '<a href="'.$featured_img_url.'" target="_blank">Download</a>';
-                    echo '</span>';
-				}
-			?>
-        </div><!-- .entry-meta -->
+		<?php the_excerpt();?>
 	</div><!-- .entry-content -->
 
-	<!-- <footer class="entry-footer"> -->
-	<!-- </footer>.entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

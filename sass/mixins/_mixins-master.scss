@@ -28,7 +28,28 @@
 	width: map-get( $columns, $numberColumns ) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
 }
 
+// max-width for single column layouts.
 @mixin max-width($width-value:1000px) {
 	width:100%;
 	max-width: $width-value;
 }
+
+// Responsive Breakpoint Definitions
+@mixin desktop-down {
+	@media (min-width: 0) and (max-width: #{$lg-desktop-width - 1px}) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (min-width: #{$desktop-width}) and (max-width: #{$lg-desktop-width - 1px}) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media (min-width: 0) and (max-width: #{$tablet-width - 1px}) {
+		@content;
+	}
+}
+ 

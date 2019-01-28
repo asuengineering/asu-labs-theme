@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: Steve Ryan (ASU Engineering)
 Author URI: https://engineering.asu.edu
 Description: Description
-Version: 1.0.2
+Version: 1.0.3
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: asufaculty
@@ -684,7 +684,8 @@ textarea {
     padding: 0.6em 0 0.6em 0.6em;
     font-size: 16px;
     font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 500; }
+    font-weight: 500;
+    white-space: normal; }
   #menu .pure-menu {
     border: none;
     background: transparent;
@@ -881,6 +882,10 @@ textarea {
 .single .post-thumbnail, .single .entry-title, .single .entry-meta {
   width: 100%;
   max-width: 1000px; }
+  @media (min-width: 0) and (max-width: 1349px) {
+    .single .post-thumbnail, .single .entry-title, .single .entry-meta {
+      padding-left: 2em;
+      padding-right: 2em; } }
 
 .single .entry-title {
   font-size: 48px;
@@ -888,6 +893,10 @@ textarea {
   margin-top: 0;
   margin-bottom: 0;
   padding: .3em 0; }
+  @media (min-width: 0) and (max-width: 1349px) {
+    .single .entry-title {
+      padding-left: 32px;
+      padding-right: 32px; } }
 
 .single .entry-meta {
   border-top: 1px solid #b2b2b2;
@@ -906,6 +915,10 @@ textarea {
   margin: 0 auto;
   width: 100%;
   max-width: 1000px; }
+  @media (min-width: 0) and (max-width: 1349px) {
+    .single .entry-content, .single .breadcrumbs, .single #comments {
+      padding-left: 2em;
+      padding-right: 2em; } }
 
 .page .entry-header {
   display: flex;
@@ -913,6 +926,10 @@ textarea {
   align-items: center;
   background-color: #f0f0f0;
   padding: 2em 0; }
+  @media (min-width: 0) and (max-width: 1349px) {
+    .page .entry-header {
+      padding-left: 2em;
+      padding-right: 2em; } }
 
 .page .post-thumbnail, .page .entry-title, .page .entry-meta {
   width: 100%;
@@ -949,6 +966,10 @@ textarea {
   margin: 0 auto;
   width: 100%;
   max-width: 1000px; }
+  @media (min-width: 0) and (max-width: 1349px) {
+    .page .entry-content, .page #comments {
+      padding-left: 2em;
+      padding-right: 2em; } }
 
 .home.page .entry-meta {
   display: none; }
@@ -962,6 +983,9 @@ textarea {
   align-items: center;
   background-color: #222222;
   padding: 2em 0; }
+  @media (min-width: 0) and (max-width: 1349px) {
+    .single-person .entry-header {
+      padding: 2em; } }
 
 .single-person .display-person {
   width: 100%;
@@ -994,8 +1018,7 @@ textarea {
 
 .single-person .contact-details {
   margin: 0;
-  padding: 0;
-  min-width: 250px; }
+  padding: 0; }
   .single-person .contact-details li {
     list-style-type: none;
     display: block;
@@ -1004,6 +1027,10 @@ textarea {
 .single-person #content .isearch-profile {
   padding: .75em 0;
   background-color: #5c6670; }
+  @media (min-width: 0) and (max-width: 1349px) {
+    .single-person #content .isearch-profile {
+      padding-left: 2em;
+      padding-right: 2em; } }
   .single-person #content .isearch-profile .container {
     width: 100%;
     max-width: 1000px;
@@ -1037,6 +1064,9 @@ textarea {
 .single-person .entry-content {
   padding-top: 2em;
   padding-bottom: 2em; }
+  @media (min-width: 0) and (max-width: 1349px) {
+    .single-person .entry-content {
+      padding: 2em; } }
 
 .single-person .person-details {
   width: 100%;
@@ -1046,6 +1076,10 @@ textarea {
   flex-wrap: wrap;
   flex-direction: row;
   border-top: 1px solid #cccccc; }
+  @media (min-width: 0) and (max-width: 1349px) {
+    .single-person .person-details {
+      padding-left: 2em;
+      padding-right: 2em; } }
   .single-person .person-details h3 {
     flex: 0 0 100%;
     width: 100%; }
@@ -1060,6 +1094,15 @@ textarea {
   padding: 2.5em 0 1em 0; }
   .post-type-archive-person .site-main .page-header .page-title {
     border-bottom: 1px solid #ffffff; }
+  @media (min-width: 0) and (max-width: 1349px) {
+    .post-type-archive-person .site-main .page-header {
+      padding-left: 2em;
+      padding-right: 2em; } }
+
+@media (min-width: 0) and (max-width: 1349px) {
+  .post-type-archive-person #primary section {
+    padding-left: 2em;
+    padding-right: 2em; } }
 
 .post-type-archive-person .person {
   display: flex;
@@ -1177,6 +1220,10 @@ textarea {
     flex-direction: row;
     align-items: center;
     padding: 1em 0; }
+    @media (min-width: 0) and (max-width: 1349px) {
+      .single-publication .entry-header .container {
+        padding-left: 2em;
+        padding-right: 2em; } }
 
 .single-publication .post-thumbnail {
   flex: 1 0 20%;
@@ -1227,6 +1274,10 @@ textarea {
   margin: 0 auto;
   width: 100%;
   max-width: 1000px; }
+  @media (min-width: 0) and (max-width: 1349px) {
+    .single-publication .entry-content, .single-publication #comments {
+      padding-left: 2em;
+      padding-right: 2em; } }
 
 .single-publication .entry-footer {
   display: flex;
@@ -1236,6 +1287,10 @@ textarea {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto; }
+  @media (min-width: 0) and (max-width: 1349px) {
+    .single-publication .entry-footer {
+      padding-left: 2em;
+      padding-right: 2em; } }
   .single-publication .entry-footer h3 {
     flex: 0 0 100%;
     border-bottom: 1px solid #d3d3d3; }
@@ -1314,6 +1369,10 @@ textarea {
     flex-direction: row;
     align-items: center;
     padding: 1em 0; }
+    @media (min-width: 0) and (max-width: 1349px) {
+      .single-research .entry-header .container {
+        padding-left: 2em;
+        padding-right: 2em; } }
 
 .single-research .post-thumbnail {
   flex: 1 0 40%;
@@ -1357,6 +1416,10 @@ textarea {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto; }
+  @media (min-width: 0) and (max-width: 1349px) {
+    .single-research .entry-content {
+      padding-left: 2em;
+      padding-right: 2em; } }
   .single-research .entry-content .content-container {
     flex: 1 0 70%;
     text-align: left; }
@@ -1453,6 +1516,10 @@ textarea {
     flex-direction: row;
     align-items: center;
     padding: 1em 0; }
+    @media (min-width: 0) and (max-width: 1349px) {
+      .tax-research-theme .page-header .container {
+        padding-left: 2em;
+        padding-right: 2em; } }
   .tax-research-theme .page-header a {
     color: #ffffff;
     border-bottom-color: #ffffff; }
@@ -1487,6 +1554,14 @@ textarea {
   text-align: left;
   width: 35%; }
 
+.tax-research-theme .section-label {
+  width: 100%;
+  max-width: 1000px;
+  margin: 1em auto; }
+  @media (min-width: 0) and (max-width: 1349px) {
+    .tax-research-theme .section-label {
+      padding: 0 32px; } }
+
 .tax-research-theme article.research {
   width: 100%;
   max-width: 1000px;
@@ -1494,6 +1569,10 @@ textarea {
   display: flex;
   flex-direction: row;
   background-color: #f0f0f0; }
+  @media (min-width: 0) and (max-width: 1349px) {
+    .tax-research-theme article.research {
+      width: 100%;
+      max-width: 635px; } }
   .tax-research-theme article.research .entry-header {
     flex: 1 0 30%; }
     .tax-research-theme article.research .entry-header .post-thumbnail {
@@ -1516,6 +1595,49 @@ textarea {
     flex: 2 0 65%;
     padding-right: 2em; }
   .tax-research-theme article.research .entry-title {
+    margin: 0;
+    line-height: 1.15; }
+
+.tax-research-theme article.publication {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 2em auto;
+  display: flex;
+  flex-direction: row;
+  background-color: #f0f0f0; }
+  @media (min-width: 0) and (max-width: 1349px) {
+    .tax-research-theme article.publication {
+      width: 100%;
+      max-width: 635px; } }
+  .tax-research-theme article.publication .entry-header {
+    flex: 1 0 5%; }
+    .tax-research-theme article.publication .entry-header .post-thumbnail {
+      position: relative;
+      top: 20px;
+      left: -20px;
+      margin-bottom: 20px; }
+      .tax-research-theme article.publication .entry-header .post-thumbnail .wp-post-image {
+        max-height: 200px;
+        width: auto;
+        margin-bottom: 1em; }
+      .tax-research-theme article.publication .entry-header .post-thumbnail .outline {
+        border: 3px solid #000000;
+        border-radius: 3px; }
+    .tax-research-theme article.publication .entry-header .status {
+      position: relative;
+      left: -20px;
+      background-color: #ffc627;
+      color: #222222;
+      padding: 5px 10px;
+      font-weight: 500;
+      top: 15px; }
+      .tax-research-theme article.publication .entry-header .status span {
+        display: block;
+        font-weight: 300; }
+  .tax-research-theme article.publication .entry-content {
+    flex: 2 0 65%;
+    padding-right: 2em; }
+  .tax-research-theme article.publication .entry-title {
     margin: 0;
     line-height: 1.15; }
 

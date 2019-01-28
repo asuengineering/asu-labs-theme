@@ -46,6 +46,18 @@ class Router {
 			'permission_callback' => 'options_permission',
 			'methods'             => array( 'GET', 'POST' ),
 		),
+		'association_data' => array(
+			'path'                => '/association',
+			'callback'            => 'get_association_data',
+			'permission_callback' => 'allow_access',
+			'methods'             => 'GET',
+		),
+		'attachment_data' => array(
+			'path'                => '/attachment',
+			'callback'            => 'get_attachment_data',
+			'permission_callback' => 'allow_access',
+			'methods'             => 'GET',
+		),
 	);
 
 	/**
@@ -262,6 +274,48 @@ class Router {
 	public function get_comment_meta( $data ) {
 		$carbon_data = $this->get_all_field_values( 'comment_meta', $data['id'] );
 		return array( 'carbon_fields' => $carbon_data );
+	}
+
+	/**
+	 * Get Carbon Fields association options data.
+	 *
+	 * @return array
+	 */
+	public function get_association_data() {
+		$container_id = $_GET['container_id'];
+		$field_id     = $_GET['field_id'];
+		$options      = isset( $_GET['options'] ) ? $_GET['options'] : array();
+		$return_value = array();
+
+		$field = Helper::get_field( null, $container_id, $field_id );
+
+		foreach ( $options as $entry ) {
+			$item = array(
+				'type'       => $entry['type'],
+				'subtype'    => $entry['subtype'],
+				'thumbnail'  => $field->get_thumbnail_by_type( $entry['id'], $entry['type'], $entry['subtype'] ),
+				'id'         => intval( $entry['id'] ),
+				'title'      => $field->get_title_by_type( $entry['id'], $entry['type'], $entry['subtype'] ),
+				'label'      => $field->get_item_label( $entry['id'], $entry['type'], $entry['subtype'] ),
+				'is_trashed' => ( $entry['type'] == 'post' && get_post_status( $entry['id'] ) === 'trash' ),
+			);
+
+			$return_value[] = $item;
+		}
+
+		return $return_value;
+	}
+
+	/**
+	 * Get attachment data by given ID or URL.
+	 *
+	 * @return array
+	 */
+	public function get_attachment_data() {
+		$type  = sanitize_text_field( $_GET['type'] );
+		$value = sanitize_text_field( $_GET['value'] );
+
+		return Helper::get_attachment_metadata( $value, $type );
 	}
 
 	/**

@@ -11,6 +11,11 @@
             flex-direction: row;
             align-items:center;
             padding:1em 0;
+
+            @include desktop-down {
+                padding-left: $desktop-padding;
+                padding-right: $desktop-padding;
+            }
         }
 
         a {
@@ -57,12 +62,25 @@
         width:35%;
     }
 
+    .section-label {
+        @include max-width;
+        margin:1em auto;
+
+        @include desktop-down {
+            padding: 0 32px // $desktop-padding = 32px in most settings.
+        }
+    }
+
     article.research {
         @include max-width;
         margin:0 auto 2em auto;
         display:flex;
         flex-direction: row;
         background-color:#f0f0f0;
+
+        @include desktop-down {
+            @include max-width(635px);
+        }
 
         .entry-header {
             flex:1 0 30%;
@@ -72,6 +90,66 @@
                 top:20px;
                 left:-20px;
                 margin-bottom:20px;
+            }
+
+            .status {
+                position:relative;
+                left:-20px;
+                background-color:#ffc627;
+                color:#222222;
+                padding:5px 10px;
+                font-weight:500;
+                top:15px;
+
+                span {
+                    display:block;
+                    font-weight:300;
+                }
+            }
+        }
+
+        .entry-content {
+            flex: 2 0 65%;
+            padding-right:2em;
+        }
+
+        .entry-title {
+            margin:0;
+            line-height:1.15;
+        }
+        
+    }
+
+    article.publication {
+        @include max-width;
+        margin:0 auto 2em auto;
+        display:flex;
+        flex-direction: row;
+        background-color:#f0f0f0;
+
+        @include desktop-down {
+            @include max-width(635px);
+        }
+
+        .entry-header {
+            flex:1 0 5%;
+            
+            .post-thumbnail {
+                position:relative;
+                top:20px;
+                left:-20px;
+                margin-bottom:20px;
+
+                .wp-post-image {
+                    max-height:200px;
+                    width:auto;
+                    margin-bottom:1em;
+                }
+
+                .outline {
+                    border: 3px solid #000000;
+                    border-radius: 3px;
+                }
             }
 
             .status {
