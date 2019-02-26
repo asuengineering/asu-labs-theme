@@ -22,6 +22,11 @@ To form the relationships needed between our custom post types, this theme requi
 
 ## Enhancements
 
+### Version 1.2
+
+- Adjustments to `archive-person.php` and related CSS for better layout with longer names. Single column layout.
+- Bug fix: Dropdown icons in navigation menu now displaying correctly. (Converted to traditonal markup via FA5).
+
 ### Version 1.1
 
 The most current version of the theme marks our first example of this theme in production. 
