@@ -32,7 +32,7 @@
 		background-color: #000000;
 	}
 
-    /* All anchors inside the menu should be styled like this. */
+  /* All anchors inside the menu should be styled like this. */
 	a {
         color: #f1f1f1;
         border: none;
@@ -98,6 +98,20 @@
 	.pure-menu-active > .pure-menu-children {
 		display: block;
 		position: inherit;
+	}
+
+	// Substitute FA5 Icon (JS) for embedded CSS icon
+	.pure-menu-has-children > .pure-menu-link:after {
+    padding-left: 0;
+    content: "";
+	}
+
+	.pure-menu-has-children svg {
+		margin-left:5px;
+	}
+
+	.pure-menu-expanded > .pure-menu-link > svg {
+		transform: rotate(180deg);
 	}
 
 }
