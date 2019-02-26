@@ -1119,24 +1119,22 @@ textarea {
   padding-bottom: 1.5em;
   margin-bottom: 0; }
   .post-type-archive-person .person .entry-content {
+    display: flex;
+    flex-direction: row;
     width: 100%;
-    max-width: 1000px;
-    display: block;
-    position: relative; }
+    max-width: 1000px; }
   .post-type-archive-person .person .post-thumbnail {
-    float: left;
+    flex: 0 0 200px;
     margin-right: 20px; }
     .post-type-archive-person .person .post-thumbnail a {
       border-bottom: 0; }
     .post-type-archive-person .person .post-thumbnail .placeholder-img {
       width: 300px;
       height: auto; }
+  .post-type-archive-person .person .entry-wrap {
+    flex: 0 1 auto; }
   .post-type-archive-person .person .entry-title {
-    position: absolute;
-    top: 25px;
-    left: 250px;
-    padding: 0;
-    margin: 0; }
+    margin: .5em 0 0 -40px; }
   .post-type-archive-person .person .person-name {
     background-color: #8c1d40;
     color: #ffffff;
@@ -1147,20 +1145,12 @@ textarea {
       background-color: #d23153; }
   .post-type-archive-person .person .person-tagline {
     font-weight: 500;
-    position: relative;
-    top: 90px;
-    margin: 0 0 0 320px; }
+    margin-bottom: 10px; }
   .post-type-archive-person .person .description {
-    font-weight: 400;
-    position: relative;
-    top: 90px;
-    margin: 0 0 0 320px; }
+    font-weight: 400; }
   .post-type-archive-person .person .contact-details {
-    margin: 0 0 0 320px;
     padding: 0;
-    position: relative;
-    top: 100px;
-    display: block; }
+    margin: 0; }
     .post-type-archive-person .person .contact-details li {
       list-style-type: none;
       display: inline;
@@ -1182,38 +1172,28 @@ textarea {
   .post-type-archive-person #featured .featured-person .contact-details a:hover {
     border-bottom-style: solid; }
 
-.post-type-archive-person .nonfeatured {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+.post-type-archive-person .nonfeatured > h2 {
+  flex: 0 0 100%;
+  border-bottom: 1px solid #d3d3d3;
+  margin: 1em auto;
   width: 100%;
-  max-width: 1000px;
-  margin: 0 auto; }
-  .post-type-archive-person .nonfeatured h2 {
-    flex: 0 0 100%;
-    border-bottom: 1px solid #d3d3d3; }
-  .post-type-archive-person .nonfeatured .person {
-    flex: 1 0 45%; }
-  .post-type-archive-person .nonfeatured .post-thumbnail {
-    max-width: 200px; }
-    .post-type-archive-person .nonfeatured .post-thumbnail .placeholder-img {
-      max-width: 200px; }
-  .post-type-archive-person .nonfeatured .entry-title {
-    left: 170px; }
-  .post-type-archive-person .nonfeatured .person-tagline {
-    margin-left: 220px; }
-  .post-type-archive-person .nonfeatured .contact-details {
-    margin-left: 220px; }
-    .post-type-archive-person .nonfeatured .contact-details li {
-      list-style-type: none;
-      display: block;
-      margin-bottom: 5px; }
-      .post-type-archive-person .nonfeatured .contact-details li:after {
-        content: ""; }
-    .post-type-archive-person .nonfeatured .contact-details .office-location {
-      display: none; }
-  .post-type-archive-person .nonfeatured .description {
-    display: none; }
+  max-width: 1000px; }
+
+.post-type-archive-person .nonfeatured .person {
+  flex: 1 0 100%; }
+
+.post-type-archive-person .nonfeatured .contact-details li {
+  list-style-type: none;
+  display: block;
+  margin-bottom: 5px; }
+  .post-type-archive-person .nonfeatured .contact-details li:after {
+    content: ""; }
+
+.post-type-archive-person .nonfeatured .contact-details .office-location {
+  display: none; }
+
+.post-type-archive-person .nonfeatured .description {
+  display: none; }
 
 /*--------------------------------------------------------------
 ## Publications
