@@ -719,6 +719,13 @@ textarea {
   #menu .pure-menu-active > .pure-menu-children {
     display: block;
     position: inherit; }
+  #menu .pure-menu-has-children > .pure-menu-link:after {
+    padding-left: 0;
+    content: ""; }
+  #menu .pure-menu-has-children svg {
+    margin-left: 5px; }
+  #menu .pure-menu-expanded > .pure-menu-link > svg {
+    transform: rotate(180deg); }
 
 /*************************************************/
 /* Small menu. */

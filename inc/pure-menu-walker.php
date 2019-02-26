@@ -22,6 +22,9 @@ class pure_menu_walker extends Walker_Nav_Menu {
 	function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
 	
 		global $wp_query;
+
+		$caret = "";
+
 		$indent = ($depth) ? '' : '';
 		// $indent = ($depth) ? str_repeat("t", $depth) : '';
 		$class_names = $value = '';
@@ -37,6 +40,7 @@ class pure_menu_walker extends Walker_Nav_Menu {
 		$children = get_posts(array('post_type' => 'nav_menu_item', 'nopaging' => true, 'numberposts' => 1, 'meta_key' => '_menu_item_menu_item_parent', 'meta_value' => $item->ID));
 		if (!empty($children)) {
 			$classes[] = 'has-sub pure-menu-has-children';
+			$caret = '<i class="fas fa-caret-down"></i>';
 		}
 		
 		$class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
@@ -55,6 +59,7 @@ class pure_menu_walker extends Walker_Nav_Menu {
 		$item_output = $args->before;
 		$item_output .= '<a'. $attributes .' class="pure-menu-link">';
 		$item_output .= $args->link_before . apply_filters('the_title', $item->title, $item->ID) . $args->link_after;
+		$item_output .= $caret;
 		$item_output .= '</a>';
 		$item_output .= $args->after;
 		
