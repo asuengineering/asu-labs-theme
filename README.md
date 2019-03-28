@@ -22,6 +22,10 @@ To form the relationships needed between our custom post types, this theme requi
 
 ## Enhancements
 
+### Version 1.3
+
+- Includes new ASU header and footer modules. Updated both elements to v4.8.
+
 ### Version 1.2
 
 - Adjustments to `archive-person.php` and related CSS for better layout with longer names. Single column layout.
