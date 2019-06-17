@@ -704,7 +704,7 @@ textarea {
       #menu .pure-menu .pure-menu-children > .current-menu-item > a {
         color: #f1f1f1; }
       #menu .pure-menu .pure-menu-children .menu-item {
-        border-left: 2px solid #f1f1f1; }
+        border-left: 2px solid #FFB310; }
       #menu .pure-menu .pure-menu-children > .menu-item > a {
         padding-left: 25px; }
   #menu .pure-menu-item .pure-menu-item {
@@ -1803,3 +1803,5 @@ object {
 /*--------------------------------------------------------------
 # Font Awesome 5
 --------------------------------------------------------------*/
+
+/*# sourceMappingURL=style.css.map */

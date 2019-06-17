@@ -7,6 +7,9 @@ jQuery(document).ready(function( $ ) {
 
     // Set all panels to collapsed at onset.
     var allPanels = $('.menu-item-has-children > .pure-menu-children').hide();
+
+    // Expand the correct parent panel if the child item is active page.
+    $('.current-menu-parent > .pure-menu-children').show();
     
     $('.menu-item-has-children > a').click(function() {
         if ($(this).siblings('.pure-menu-children').is(':hidden')) {
