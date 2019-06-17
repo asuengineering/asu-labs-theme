@@ -35,10 +35,19 @@ get_header();
 			</header><!-- .page-header -->
             
 			<?php 
-			// Make two post loops, one for each related CPT. More expensive, but also allows for better customization. 
+			// Make two post loops, one for each related CPT. More expensive, but also allows for better customization.
+			
+			$themeid = get_queried_object_id();
 
 			$args_projects = array(
 				'post_type' => 'research',
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'research-theme',
+						'field'    => 'term_id',
+						'terms'    => $themeid,
+					),
+				),
 			);
 
 			$query_projects = new WP_Query( $args_projects );
@@ -58,6 +67,13 @@ get_header();
 
 			$args_publications = array(
 				'post_type' => 'publication',
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'research-theme',
+						'field'    => 'term_id',
+						'terms'    => $themeid,
+					),
+				),
 			);
 
 			$query_publications = new WP_Query( $args_publications );
