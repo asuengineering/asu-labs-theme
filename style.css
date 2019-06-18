@@ -69,11 +69,40 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   /* Overrides default CSS from the ASU Module */ }
 
 /* Collapse everything into a single columm */
-@media (max-width: 768px) {
+@media (min-width: 0) and (max-width: 990px) {
   #page {
-    grid-template-areas: "global-header" "content" "navigation" "global-footer";
+    grid-template-areas: "global-header" "content" "global-footer";
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto auto; } }
+    grid-template-rows: auto 1fr auto; }
+  #masthead {
+    display: none; }
+  #asu_universal_nav_new .empty > span {
+    display: block;
+    padding: 12px 15px;
+    color: #fff;
+    background-color: #505558;
+    line-height: 1em;
+    letter-spacing: -0.5px; }
+  #main-search form label {
+    display: none; }
+  #innovation-footer .footer-menu ul.default {
+    display: block;
+    text-align: center;
+    margin: 0;
+    padding: 1em 0; }
+    #innovation-footer .footer-menu ul.default li {
+      float: none;
+      display: inline;
+      text-align: center; }
+      #innovation-footer .footer-menu ul.default li:last-child a:after {
+        content: "";
+        padding-left: 0; }
+    #innovation-footer .footer-menu ul.default a {
+      padding: 0;
+      margin-right: 10px; }
+      #innovation-footer .footer-menu ul.default a:after {
+        content: "-";
+        padding-left: 15px; } }
 
 /*--------------------------------------------------------------
 # Normalize
@@ -726,6 +755,8 @@ textarea {
     content: ""; }
   #menu .pure-menu-has-children svg {
     margin-left: 5px; }
+  #menu #home-icon-main-nav svg {
+    margin-right: 10px; }
   #menu .pure-menu-expanded > .pure-menu-link > svg {
     transform: rotate(180deg); }
 

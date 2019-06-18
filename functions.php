@@ -111,6 +111,7 @@ function asufaculty_scripts() {
 	wp_enqueue_script( 'asufaculty-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
     wp_enqueue_script( 'font-awesome-five', get_template_directory_uri() . '/vendor/fontawesome-pro/js/all.js', false, '5.7.2');
 	wp_enqueue_script( 'custom-js', get_template_directory_uri() .'/js/custom.js', array('jquery'), null, true);
+	wp_enqueue_script( 'asumobile-js', get_template_directory_uri() .'/js/asumobile.js', array('jquery'), null, true);
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -165,3 +166,24 @@ function asufaculty_remove_archive_term_label( $title ) {
     return $title;
 }
 add_filter( 'get_the_archive_title', 'asufaculty_remove_archive_term_label' );
+
+// Add custom home icon & menu entry to main nav manu.
+function asufaculty_add_home_menu_icon ( $items, $args ) {
+    if ($args->theme_location == 'primary') {
+
+        if (is_front_page()) {
+            $homeicon = '<li id="menu-item-home" class="menu-item pure-menu-item current-menu-item">';
+        } else {
+            $homeicon = '<li id="menu-item-home" class="menu-item pure-menu-item">';
+        }
+
+        $homeicon .= '<a href="' . get_home_url() . '" title="Home" id="home-icon-main-nav" class="pure-menu-link">';
+        $homeicon .= '<span class="fa fa-home" aria-hidden="true"></span>Home';
+        $homeicon .= '</a>';
+        $homeicon .= '</li>';
+        
+        $items = $homeicon . $items;
+    }
+    return $items;
+}
+add_filter( 'wp_nav_menu_items', 'asufaculty_add_home_menu_icon', 10, 2 );
