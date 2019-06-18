@@ -22,6 +22,12 @@ To form the relationships needed between our custom post types, this theme requi
 
 ## Enhancements
 
+### Version 1.4
+
+- Fixed bug within `taxonomy-research-theme.php` which caused it to display all projects and publications instead of just the related items.
+- The accordion panel in the main navigation that contains the current page will now be open by default.
+- Enhancements to the mobile menu were introduced in this release.
+
 ### Version 1.3
 
 - Includes new ASU header and footer modules. Updated both elements to v4.8.
