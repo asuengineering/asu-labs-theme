@@ -52,4 +52,10 @@
 		@content;
 	}
 }
+
+@mixin asumobile {
+	@media (min-width: 0) and (max-width: #{$asu-desktop - 1px}) {
+		@content;
+	}
+}
  
