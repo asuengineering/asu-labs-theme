@@ -125,7 +125,9 @@ if ( ! function_exists( 'asufaculty_page_entry_footer' ) ) :
 
 		echo '<div class="entry-meta-group">';
 
-		asufaculty_posted_on();
+		if (!is_page()) {
+			asufaculty_posted_on();
+		}
 
 		edit_post_link(
 			sprintf(

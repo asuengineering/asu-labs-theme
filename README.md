@@ -28,6 +28,12 @@ To form the relationships needed between our custom post types, this theme requi
 - The accordion panel in the main navigation that contains the current page will now be open by default.
 - Enhancements to the mobile menu were introduced in this release.
 
+#### Version 1.4.1
+
+- Includes a fix for the default page template and the assigned featured image.
+- Adds support for additional custom post types to be featured and displayed correctly on the home page.
+- Removes displayed date on `page.php`.
+
 ### Version 1.3
 
 - Includes new ASU header and footer modules. Updated both elements to v4.8.

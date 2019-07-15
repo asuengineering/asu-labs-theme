@@ -187,3 +187,23 @@ function asufaculty_add_home_menu_icon ( $items, $args ) {
     return $items;
 }
 add_filter( 'wp_nav_menu_items', 'asufaculty_add_home_menu_icon', 10, 2 );
+
+// Add additional classes to CPTs that are displayed as the home page.
+// CPTs as home page functionality achieved via an MU plugin called mPress Custom Front Page.
+function asufaculty_add_additional_home_classes( $classes ) {
+
+	if ( (is_front_page()) && (is_singular('person'))) {
+		return array_merge( $classes, array( 'single-person' ) );
+	}
+
+	if ( (is_front_page()) && (is_singular('research'))) {
+		return array_merge( $classes, array( 'single-research' ) );
+	}
+
+	if ( (is_front_page()) && (is_singular('publication'))) {
+		return array_merge( $classes, array( 'single-publication' ) );
+	}
+
+	return $classes;
+}
+add_filter( 'body_class', 'asufaculty_add_additional_home_classes' );
