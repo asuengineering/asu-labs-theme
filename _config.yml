@@ -34,8 +34,8 @@ navigation:
   - text: Home
     url: ./
     internal: true
-  - text: Prepare your content
-    url: prepare/
+  - text: Quick Start Guide
+    url: quick-start/
     internal: true
   - text: People
     url: people/
@@ -54,6 +54,9 @@ navigation:
     internal: true
   - text: Labels and Categories
     url: categories/
+    internal: true
+  - text: About this theme
+    url: about/
     internal: true
 
 # Repo list
