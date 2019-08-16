@@ -17,7 +17,7 @@ subtitle: A theme for faculty lab sites, sponsored by ASU Engineering.
 # When working locally use jekyll serve --baseurl '' so that you can view everything at localhost:4000
 # See http://jekyllrb.com/docs/github-pages/ for more info
 #baseurl: ''
-baseurl: "/DOCter"
+baseurl: "/asu-labs-theme"
 
 # Author/Organization info to be displayed in the templates
 author:
@@ -40,16 +40,31 @@ navigation:
   - text: People
     url: people/
     internal: true
+  - text: Directory Page
+    url: people/
+    internal: true
+  - text: Research Topics
+    url: research-topic/
+    internal: true
+  - text: Research Projects
+    url: research/
+    internal: true
+  - text: Publications
+    url: publications/
+    internal: true
+  - text: Labels and Categories
+    url: categories/
+    internal: true
 
 # Repo list
 # List repos that you would like to appear on the homepage here
 repos:
-  - name: DOCter
-    description: Jekyll template for docs
-    url: https://github.com/cfpb/DOCter
+  - name: asu-labs-theme
+    description: A theme for WordPress to build and organize small group websites. Ideal for engineering "lab" groups on campus.
+    url: https://github.com/asuengineering/asu-labs-theme
 
 # Style Variables
-brand_color: "#2cb34a"
+brand_color: "#8c1d40"
 
 # Offline caching
 offline_cache: false
