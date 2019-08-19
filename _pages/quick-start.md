@@ -4,10 +4,10 @@ title: "Quick Start Guide"
 ---
 
 ## Content preparation: Quick Start ##
-Need to get going fast? We totally understand. Gather the following content ahead of time to stand up a site quickly.
+Need to get going fast? We totally understand. Gather the following content and answers ahead of time to stand up a site quickly.
 
 Full names, email addresses and profile photos of everyone involved in your lab.
-: Search photos work well, as do ASU Engineering Open Studio portraits.
+: iSearch photos work well, as do ASU Engineering Open Studio portraits.
 : Make sure that the photos are at least 600px by 600px. A square crop is recommended but is not completely necessary.
 
 Decide how you want to organize the resulting list of people within your site.

@@ -5,8 +5,7 @@ title: "Why we made this"
 
 The ASU Labs Theme for WordPress is a custom theme designed to meet the needs of small working lab groups on campus. After examining our existing collection of more than 100 sites with this purpose, we realized that the needs of most of our faculty groups revolved around three basic types of content.
 
-(triangle image)
-Alt: Research projects, the people involved with the lab, and the publications stemming from the lab itself.
+![Illustration of relationship between research projects, the people involved with the lab, and the publications stemming from the lab itself. Each main element within the illustration is represented by a box. The boxes are connected with lines to form a triangle.](/../assets/img/content-relationships.jpg)
 
 - In addition to delivering an out-of-the-box type solution for these content types, we also wanted to address the following difficulties.
 - We wanted to reduce the need for the end user to focus on the site's design by providing a set of well-thought out templates for each content piece.

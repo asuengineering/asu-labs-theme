@@ -3,24 +3,30 @@ layout: page
 title: "Directory"
 ---
 
-The individual profiles within the site are compiled together to form a directory page automatically.
+A "directory" page is automatically built for you as you add one or more pages for the individual members of your lab. Just add it to the menu and configure a few key options.
 
 ## Screenshots ##
 
 (screen shots pending)
 
-## Organization ##
+## View the directory ##
 
-Individuals are grouped together within the directory based on how you classify them within the Lab Roles taxonomy. Within those groupings, you can organize the individual profile links as you see fit. Just drag and drop the individual entries on the All People screen. 
+Once there is at least one saved page for a person in your website, you can view the directory page at `/people`.
 
-**Note**{:.label .label-yellow} Drag and drop functionality is enabled by a plugin called Intuitive Post Order that comes bundled with the ASU Engineering's standard deployment of this theme.
+## Add the directory to the menu ##
 
-**Info**{:.label .label-blue} This order can be set manually by accessing the Quick Edit screen from All People, or directly within the post itself from People Attributes in the sidebar.
+From either the default menu screen at `wp-admin/nav-menus.php` or within the customizer at `wp-admin/customize.php`, look for the collection of pages under the People post type. At the top of the list, you should see a **People Archive** page. Add this page to the menu and save your changes. 
 
-## Key Profiles ##
+Once the page has been added to the menu, you can edit the label for the page. We tend to use the label **directory**, but you can name the page anything you like.
 
-Within each organization, people belonging to a particular **Faculty/Student Type** can be highlighted as the "featured" point of contact for the lab. Their entries will be formatted differently and will appear at the top of the directory page.
+## Change the order of the list ## 
 
-To mark a particular lab role as a **featured** role, search for the correct term in the Lab Role taxonomy and enable the checkbox marked "Display as a Featured Person."
+Within the directory page, you can choose to highlight members assigned to a particular Faculty / Student Type. Highlighting this category will change the background color on their profile entries and move them to the top of the list automatically. Typically, we use this feature to call out the lab's **principal investigator**, but any category can be highlighted in this way.
 
-(screenshot: checkbox within tax screen)
+To select the highlighted category, edit the correct term within the Faculty / Student Type taxonomy at `wp-admin/edit-tags.php?taxonomy=faculty-type&post_type=person`. Click the checkbox labeled **Display as Featured Person** and save your changes.
+
+(screen shot, Display Featured Person checkbox)
+
+Within the same taxonomy screen, you can reorder the terms on this page to change the order in which they are displayed on the directory page. Just click and drag them into the correct order and the directory page will be automatically updated.
+
+: **Note**{:.label .label-yellow} The click and drag feature is enabled by a plugin called Intuitive Post Order. If your site has been built or configured by ASU Engineering, the plugin and drag and drop functionality should be on by default.
