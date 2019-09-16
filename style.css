@@ -4,7 +4,7 @@ Theme URI: https://github.com/asuengineering/asu-labs-theme
 Author: Steve Ryan (ASU Engineering)
 Author URI: https://engineering.asu.edu
 Description: A theme for WordPress to help build and organize small group websites. Ideal for engineering "lab" groups on campus.
-Version: 1.4.1
+Version: 1.5
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: asufaculty
@@ -921,11 +921,15 @@ textarea {
   background-color: #f0f0f0;
   padding: 2em 0; }
 
-.single .post-thumbnail, .single .entry-title, .single .entry-meta {
+.single .post-thumbnail,
+.single .entry-title,
+.single .entry-meta {
   width: 100%;
   max-width: 1000px; }
   @media (min-width: 0) and (max-width: 1349px) {
-    .single .post-thumbnail, .single .entry-title, .single .entry-meta {
+    .single .post-thumbnail,
+    .single .entry-title,
+    .single .entry-meta {
       padding-left: 2em;
       padding-right: 2em; } }
 
@@ -952,13 +956,17 @@ textarea {
   .single .entry-meta > span:last-child:after {
     content: ""; }
 
-.single .entry-content, .single .breadcrumbs, .single #comments {
+.single .entry-content,
+.single .breadcrumbs,
+.single #comments {
   display: block;
   margin: 0 auto;
   width: 100%;
   max-width: 1000px; }
   @media (min-width: 0) and (max-width: 1349px) {
-    .single .entry-content, .single .breadcrumbs, .single #comments {
+    .single .entry-content,
+    .single .breadcrumbs,
+    .single #comments {
       padding-left: 2em;
       padding-right: 2em; } }
 
@@ -973,7 +981,9 @@ textarea {
       padding-left: 2em;
       padding-right: 2em; } }
 
-.page .post-thumbnail, .page .entry-title, .page .entry-meta {
+.page .post-thumbnail,
+.page .entry-title,
+.page .entry-meta {
   width: 100%;
   max-width: 1000px; }
 
@@ -1003,13 +1013,26 @@ textarea {
     content: "";
     padding-right: 0; }
 
-.page .entry-content, .page #comments {
+.page .entry-content,
+.page #comments {
   display: block;
   margin: 0 auto;
   width: 100%;
   max-width: 1000px; }
   @media (min-width: 0) and (max-width: 1349px) {
-    .page .entry-content, .page #comments {
+    .page .entry-content,
+    .page #comments {
+      padding-left: 2em;
+      padding-right: 2em; } }
+
+.home #above-posts .entry-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 0em 0; }
+  @media (min-width: 0) and (max-width: 1349px) {
+    .home #above-posts .entry-header {
       padding-left: 2em;
       padding-right: 2em; } }
 
@@ -1685,8 +1708,7 @@ textarea {
   padding: 1em;
   border-left: 20px solid #ffffff;
   border-right: 50px solid #ffffff;
-  background: #ffc627;
-  background: linear-gradient(180deg, rgba(255, 198, 39, 0.65) 0%, #ffc627 50%); }
+  background: #f0f0f0; }
   .archive .post .entry-header {
     flex: 1 0;
     position: relative;
@@ -1705,8 +1727,8 @@ textarea {
       margin: 0; }
   .archive .post .entry-meta {
     padding: .5em .75em;
-    color: #ffffff;
-    background-color: #000000;
+    color: #222222;
+    background-color: #ffc627;
     font-weight: 500;
     text-align: right;
     align-self: flex-end;

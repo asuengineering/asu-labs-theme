@@ -22,17 +22,24 @@ To form the relationships needed between our custom post types, this theme requi
 
 ## Enhancements
 
+### Version 1.5 (Current)
+
+- Adds support to display blog posts on the home page.
+- The gold background on post archive pages was way too bright. This update makes is so sunglasses are no longer required.
+- Removes unused widget sidebar area and registers two additional sidebar areas. One for under the main navigation, and a second to add context above the blog post listings on the home page.
+
+
+### Version 1.4.1
+
+- Includes a fix for the default page template and the assigned featured image.
+- Adds support for additional custom post types to be featured and displayed correctly on the home page.
+- Removes displayed date on `page.php`.
+
 ### Version 1.4
 
 - Fixed bug within `taxonomy-research-theme.php` which caused it to display all projects and publications instead of just the related items.
 - The accordion panel in the main navigation that contains the current page will now be open by default.
 - Enhancements to the mobile menu were introduced in this release.
-
-#### Version 1.4.1
-
-- Includes a fix for the default page template and the assigned featured image.
-- Adds support for additional custom post types to be featured and displayed correctly on the home page.
-- Removes displayed date on `page.php`.
 
 ### Version 1.3
 
