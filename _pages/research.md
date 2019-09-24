@@ -8,11 +8,11 @@ It is easy to quickly create a series of pages that focus on the active and comp
 ## Screenshots ##
 
 <div id="lightbox" class="lightbox">
-    <a href="/../assets/img/research-front.jpg">
-        <img src="/../assets/img/research-front.jpg" alt="Screen shot: Sample research project page" />
+    <a href="../assets/img/research-front.jpg">
+        <img src="../assets/img/research-front.jpg" alt="Screen shot: Sample research project page" />
     </a>
-    <a href="/../assets/img/research-create.jpg">
-        <img src="/../assets/img/research-create.jpg" alt="Screen Shot: Steps for adding the directory page to the menu." />
+    <a href="../assets/img/research-create.jpg">
+        <img src="../assets/img/research-create.jpg" alt="Screen Shot: Steps for adding the directory page to the menu." />
     </a>
 </div>
 

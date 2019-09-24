@@ -8,11 +8,11 @@ A "directory" page is automatically built for you as you add one or more pages f
 ## Screenshots ##
 
 <div id="lightbox" class="lightbox">
-    <a href="/assets/img/directory-front.jpg">
-        <img src="/assets/img/directory-front.jpg" alt="Screen shot: Directory Template" />
+    <a href="../assets/img/directory-front.jpg">
+        <img src="../assets/img/directory-front.jpg" alt="Screen shot: Directory Template" />
     </a>
-    <a href="/assets/img/directory-steps-customizer.jpg">
-        <img src="/assets/img/directory-steps-customizer.jpg" alt="Screen Shot: Steps for adding the directory page to the menu." />
+    <a href="../assets/img/directory-steps-customizer.jpg">
+        <img src="../assets/img/directory-steps-customizer.jpg" alt="Screen Shot: Steps for adding the directory page to the menu." />
     </a>
 </div>
 
@@ -33,11 +33,11 @@ Within the directory page, you can choose to highlight members assigned to a par
 To select the highlighted category, edit the correct term within the Faculty / Student Type taxonomy at `wp-admin/edit-tags.php?taxonomy=faculty-type&post_type=person`. Click the checkbox labeled **Display as Featured Person** and save your changes.
 
 <div id="lightbox-2" class="lightbox">
-    <a href="/assets/img/directory-featured-checkbox.jpg">
-        <img src="/assets/img/directory-featured-checkbox.jpg" alt="Screen shot: Featured Person Checkbox" />
+    <a href="../assets/img/directory-featured-checkbox.jpg">
+        <img src="../assets/img/directory-featured-checkbox.jpg" alt="Screen shot: Featured Person Checkbox" />
     </a>
-        <a href="/assets/img/directory-reorder-terms.gif">
-        <img src="/assets/img/directory-reorder-terms.gif" alt="Screen shot: Drag and Drop, Reorder Terms" />
+        <a href="../assets/img/directory-reorder-terms.gif">
+        <img src="../assets/img/directory-reorder-terms.gif" alt="Screen shot: Drag and Drop, Reorder Terms" />
     </a>
 </div>
 
