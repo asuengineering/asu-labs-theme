@@ -41,4 +41,4 @@ Best practices for this feature are to:
 
  This will result in a thumbnail image of your publication showing up near the title of the page. This thumbnail image will link to the included PDF.
 
-![Screen shot: Detail shot of the admin area and where you upload either the PDF or image of the downloadable document.](/../assets/img/publication-featureimage-detail.jpg){: .resp}
+![Screen shot: Detail shot of the admin area and where you upload either the PDF or image of the downloadable document.](../assets/img/publication-featureimage-detail.jpg){: .resp}
