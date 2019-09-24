@@ -7,7 +7,14 @@ Individual profiles pages can be created by following the People->Add New Person
 
 ## Screenshots ##
 
-(screen shots pending)
+<div id="lightbox" class="lightbox">
+    <a href="/../assets/img/person-front.jpg">
+        <img src="/../assets/img/person-front.jpg" alt="Illustration of relationship between research projects" />
+    </a>
+        <a href="/../assets/img/person-admin.jpg">
+        <img src="/../assets/img/person-admin.jpg" alt="Illustration of relationship between research projects" />
+    </a>
+</div>
 
 ## Minimum Information Needed ##
 
@@ -19,6 +26,7 @@ To create a good-looking profile page for a member of your group, you need the f
 You will also need to decide how this person should be categorized within the directory page. (See Faculty/Student Types for more detail.)
 
 Profile pages should also include a photo of the person being featured. The photo should be at least 600px x 600px. A square crop is preferred. If a photo is not included in the profile, a default ASU image will appear in its place.
+{: .photo}
 
 ## Completed Profile ## 
 

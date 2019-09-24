@@ -14,7 +14,7 @@ The terms from this taxonomy are not displayed on the individual profile page bu
 
 ### Degree Program ###
 
-Refers to the degree or program that a person might be enrolled in or have completed while working in this lab. Lists of [undergraduate](https://engineering.asu.edu/undergraduate-degree-programs/) and [graduate](https://graduate.engineering.asu.edu/graduate-programs/) degree programs can be found within the [ASU Engineering's Explore](explore.engineering.asu.edu) website.
+Refers to the degree or program that a person might be enrolled in or have completed while working in this lab. Lists of [undergraduate](https://engineering.asu.edu/undergraduate-degree-programs/){:target="_blank"} and [graduate](https://graduate.engineering.asu.edu/graduate-programs/){:target="_blank"} degree programs can be found on the [ASU Engineering](https://engineering.asu.edu/programs/){:target="_blank"} web site.
 
 Please use the official degree name or description including proper abbreviation and punctuation wherever possible.
 

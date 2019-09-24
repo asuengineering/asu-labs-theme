@@ -7,7 +7,14 @@ A "directory" page is automatically built for you as you add one or more pages f
 
 ## Screenshots ##
 
-(screen shots pending)
+<div id="lightbox" class="lightbox">
+    <a href="/../assets/img/directory-front.jpg">
+        <img src="/../assets/img/directory-front.jpg" alt="Screen shot: Directory Template" />
+    </a>
+    <a href="/../assets/img/directory-steps-customizer.jpg">
+        <img src="/../assets/img/directory-steps-customizer.jpg" alt="Screen Shot: Steps for adding the directory page to the menu." />
+    </a>
+</div>
 
 ## View the directory ##
 
@@ -25,8 +32,16 @@ Within the directory page, you can choose to highlight members assigned to a par
 
 To select the highlighted category, edit the correct term within the Faculty / Student Type taxonomy at `wp-admin/edit-tags.php?taxonomy=faculty-type&post_type=person`. Click the checkbox labeled **Display as Featured Person** and save your changes.
 
-(screen shot, Display Featured Person checkbox)
+<div id="lightbox-2" class="lightbox">
+    <a href="/../assets/img/directory-featured-checkbox.jpg">
+        <img src="/../assets/img/directory-featured-checkbox.jpg" alt="Screen shot: Featured Person Checkbox" />
+    </a>
+        <a href="/../assets/img/directory-reorder-terms.gif">
+        <img src="/../assets/img/directory-reorder-terms.gif" alt="Screen shot: Drag and Drop, Reorder Terms" />
+    </a>
+</div>
 
 Within the same taxonomy screen, you can reorder the terms on this page to change the order in which they are displayed on the directory page. Just click and drag them into the correct order and the directory page will be automatically updated.
 
-: **Note**{:.label .label-yellow} The click and drag feature is enabled by a plugin called Intuitive Post Order. If your site has been built or configured by ASU Engineering, the plugin and drag and drop functionality should be on by default.
+The click and drag feature is enabled by a plugin called **Intuitive Post Order**. If your site has been built or configured by ASU Engineering, the plugin and drag and drop functionality should be on by default.
+{: .info}

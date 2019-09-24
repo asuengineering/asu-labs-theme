@@ -22,7 +22,7 @@ baseurl: "/asu-labs-theme"
 # Author/Organization info to be displayed in the templates
 author:
   name: Steve Ryan, ASU Engineering
-  url: http://localhost:4000
+  url:
 
 # Point the logo URL at a file in your repo or hosted elsewhere by your organization
 logourl:
@@ -41,7 +41,7 @@ navigation:
     url: people/
     internal: true
   - text: Directory Page
-    url: people/
+    url: directory/
     internal: true
   - text: Research Topics
     url: research-topic/
@@ -65,9 +65,6 @@ repos:
   - name: asu-labs-theme
     description: A theme for WordPress to build and organize small group websites. Ideal for engineering "lab" groups on campus.
     url: https://github.com/asuengineering/asu-labs-theme
-
-# Style Variables
-brand_color: "#8c1d40"
 
 # Offline caching
 offline_cache: false
