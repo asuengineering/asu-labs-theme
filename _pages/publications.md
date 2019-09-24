@@ -8,11 +8,11 @@ Your website can feature individual publications that are relevant to specific p
 ## Screenshots ##
 
 <div id="lightbox" class="lightbox">
-    <a href="/../assets/img/publication-front.jpg">
+    <a href="/assets/img/publication-front.jpg">
         <img src="/../assets/img/publication-front.jpg" alt="Screen shot: Sample publication page" />
     </a>
-    <a href="/../assets/img/publication-create.jpg">
-        <img src="/../assets/img/publication-create.jpg" alt="Screen Shot: Admin area for creating a publication page." />
+    <a href="/assets/img/publication-create.jpg">
+        <img src="/assets/img/publication-create.jpg" alt="Screen Shot: Admin area for creating a publication page." />
     </a>
 </div>
 

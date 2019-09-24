@@ -8,11 +8,11 @@ Individual profiles pages can be created by following the People->Add New Person
 ## Screenshots ##
 
 <div id="lightbox" class="lightbox">
-    <a href="/../assets/img/person-front.jpg">
-        <img src="/../assets/img/person-front.jpg" alt="Illustration of relationship between research projects" />
+    <a href="/assets/img/person-front.jpg">
+        <img src="/assets/img/person-front.jpg" alt="Illustration of relationship between research projects" />
     </a>
-        <a href="/../assets/img/person-admin.jpg">
-        <img src="/../assets/img/person-admin.jpg" alt="Illustration of relationship between research projects" />
+        <a href="/assets/img/person-admin.jpg">
+        <img src="/assets/img/person-admin.jpg" alt="Illustration of relationship between research projects" />
     </a>
 </div>
 
