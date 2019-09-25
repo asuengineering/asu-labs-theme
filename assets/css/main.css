@@ -261,7 +261,7 @@ Info Boxes (photo, info)
 .photo:before {
     content: "";
     position: absolute;
-    background-image: url('../img/noun_Photo_2059727.svg');
+    background-image: url('../assets/img/noun_Photo_2059727.svg');
     background-size: cover;
     width: 4em;
     height: 4em;
@@ -281,7 +281,7 @@ Info Boxes (photo, info)
 .info:before {
     content: "";
     position: absolute;
-    background-image: url('../img/noun_lightbulb_1262995.svg');
+    background-image: url('../assets/img/noun_lightbulb_1262995.svg');
     background-size: cover;
     width: 4em;
     height: 4em;
