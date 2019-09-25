@@ -12,7 +12,7 @@ This theme for WordPress is intended to help speed the publishing and maintenanc
 ## Screenshots ##
 
 <div id="lightbox" class="lightbox lightbox-front">
-    <a href="../assets/img/person-front.jpg">
+    <a href="../asu-labs-theme/assets/img/person-front.jpg">
         <img src="../assets/img/person-front.jpg" alt="Illustration of relationship between research projects" />
     </a>
     <a href="../assets/img/directory-front.jpg">
