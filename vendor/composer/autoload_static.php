@@ -11,10 +11,12 @@ class ComposerStaticInita750a50c544f6bd79afa2c36da7f2942
         array (
             'Hybrid\\Breadcrumbs\\' => 19,
         ),
+        'D' => 
+        array (
+            'Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => 55,
+        ),
         'C' => 
         array (
-            'Composer\\Installers\\' => 20,
-            'Carbon_Fields_Plugin\\' => 21,
             'Carbon_Fields\\' => 14,
         ),
     );
@@ -24,13 +26,9 @@ class ComposerStaticInita750a50c544f6bd79afa2c36da7f2942
         array (
             0 => __DIR__ . '/..' . '/justintadlock/hybrid-breadcrumbs/src',
         ),
-        'Composer\\Installers\\' => 
+        'Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => 
         array (
-            0 => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers',
-        ),
-        'Carbon_Fields_Plugin\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/wp-content/plugins/carbon-fields-plugin/core',
+            0 => __DIR__ . '/..' . '/dealerdirect/phpcodesniffer-composer-installer/src',
         ),
         'Carbon_Fields\\' => 
         array (

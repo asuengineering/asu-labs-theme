@@ -1,6 +1,13 @@
 {
     "require": {
         "justintadlock/hybrid-breadcrumbs": "^1.0",
-        "htmlburger/carbon-fields-plugin": "^3.0"
-    }
+        "htmlburger/carbon-fields": "^3.1",
+        "squizlabs/php_codesniffer": "*"
+    },
+    "require-dev": {
+        "wp-coding-standards/wpcs": "^2.2",
+        "phpcompatibility/php-compatibility": "*",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0"
+    },
+    "prefer-stable" : true
 }
