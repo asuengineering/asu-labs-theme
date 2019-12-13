@@ -63,6 +63,53 @@ if (!function_exists('asufaculty_setup')) :
 
 		// Add theme support for selective refresh for widgets.
 		add_theme_support('customize-selective-refresh-widgets');
+
+		// Gutenberg support options
+		add_theme_support('align-wide');	
+		add_theme_support('editor-styles');
+		add_editor_style('style-editor.css');
+		add_theme_support('editor-color-palette', array(
+			array(
+				'name' => __('ASU Maroon', 'themeLangDomain'),
+				'slug' => 'asu-maroon',
+				'color' => '#8c1d40',
+			),
+			array(
+				'name' => __('ASU Gold', 'themeLangDomain'),
+				'slug' => 'asu-gold',
+				'color' => '#ffc627',
+			),
+			array(
+				'name' => __('ASU Blue', 'themeLangDomain'),
+				'slug' => 'asu-blue',
+				'color' => '#00a3e0',
+			),
+			array(
+				'name' => __('ASU Green', 'themeLangDomain'),
+				'slug' => 'asu-green',
+				'color' => '#78be20',
+			),
+			array(
+				'name' => __('ASU Orange', 'themeLangDomain'),
+				'slug' => 'asu-orange',
+				'color' => '#ff7f32',
+			),
+			array(
+				'name' => __('ASU Dark Grey', 'themeLangDomain'),
+				'slug' => 'asu-dark-grey',
+				'color' => '#5c6670',
+			),
+			array(
+				'name' => __('ASU Black', 'themeLangDomain'),
+				'slug' => 'asu-black',
+				'color' => '#000000',
+			),
+			array(
+				'name' => __('ASU Gold', 'themeLangDomain'),
+				'slug' => 'asu-gold',
+				'color' => '#ffffff',
+			)
+		));
 	}
 endif;
 add_action('after_setup_theme', 'asufaculty_setup');

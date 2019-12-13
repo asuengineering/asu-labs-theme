@@ -1,6 +1,7 @@
 <?php
 /**
  * The template for displaying all single person pages.
+ *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
  * @package asufaculty
@@ -15,7 +16,7 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/person-full');
+			get_template_part( 'template-parts/person-full' );
 
 		endwhile; // End of the loop.
 		?>
@@ -24,5 +25,5 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-// get_sidebar();
+
 get_footer();

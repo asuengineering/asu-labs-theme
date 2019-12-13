@@ -1,61 +1,75 @@
 // Rem output with px fallback
 @mixin font-size($sizeValue: 1) {
-	font-size: ($sizeValue * 16) * 1px;
-	font-size: $sizeValue * 1rem;
+  font-size: ($sizeValue * 16) * 1px;
+  font-size: $sizeValue * 1rem;
 }
 
 // Center block
 @mixin center-block {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 // Clearfix
 @mixin clearfix() {
-	content: "";
-	display: table;
-	table-layout: fixed;
+  content: "";
+  display: table;
+  table-layout: fixed;
 }
 
 // Clear after (not all clearfix need this also)
 @mixin clearfix-after() {
-	clear: both;
+  clear: both;
 }
 
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
-	width: map-get( $columns, $numberColumns ) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+  width: map-get($columns, $numberColumns) -
+    (($columns__margin * ($numberColumns - 1)) / $numberColumns);
 }
 
-// max-width for single column layouts.
-@mixin max-width($width-value:1000px) {
-	width:100%;
-	max-width: $width-value;
+@mixin normal-width($width-value: 1000px) {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $width-value;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@mixin wide-width($width-value: 1160px) {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $width-value;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@mixin full-width() {
+  max-width: none;
 }
 
 // Responsive Breakpoint Definitions
 @mixin desktop-down {
-	@media (min-width: 0) and (max-width: #{$lg-desktop-width - 1px}) {
-		@content;
-	}
+  @media (min-width: 0) and (max-width: #{$lg-desktop-width - 1px}) {
+    @content;
+  }
 }
 
 @mixin desktop {
-	@media (min-width: #{$desktop-width}) and (max-width: #{$lg-desktop-width - 1px}) {
-		@content;
-	}
+  @media (min-width: #{$desktop-width}) and (max-width: #{$lg-desktop-width - 1px}) {
+    @content;
+  }
 }
 
 @mixin mobile {
-	@media (min-width: 0) and (max-width: #{$tablet-width - 1px}) {
-		@content;
-	}
+  @media (min-width: 0) and (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
 }
 
 @mixin asumobile {
-	@media (min-width: 0) and (max-width: #{$asu-desktop - 1px}) {
-		@content;
-	}
+  @media (min-width: 0) and (max-width: #{$asu-desktop - 1px}) {
+    @content;
+  }
 }
- 
