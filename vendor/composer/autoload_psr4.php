@@ -7,6 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Hybrid\\Breadcrumbs\\' => array($vendorDir . '/justintadlock/hybrid-breadcrumbs/src'),
-    'Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => array($vendorDir . '/dealerdirect/phpcodesniffer-composer-installer/src'),
     'Carbon_Fields\\' => array($vendorDir . '/htmlburger/carbon-fields/core'),
 );

@@ -3,28 +3,20 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "X-Generator: babel-plugin-makepot\n"
 
-#: packages/blocks/components/block-edit/index.js:214
+#: packages/blocks/components/block-edit/index.js:201
 msgid "Show preview"
 msgstr ""
 
-#: packages/blocks/components/block-edit/index.js:215
+#: packages/blocks/components/block-edit/index.js:202
 msgid "Hide preview"
 msgstr ""
 
-#: packages/blocks/components/block-edit/index.js:286
+#: packages/blocks/components/block-edit/index.js:271
 msgid "Fields"
 msgstr ""
 
 #: packages/blocks/components/not-supported-field/index.js:14
 msgid "Field of type '%s' is not supported in Gutenberg."
-msgstr ""
-
-#: packages/blocks/components/server-side-render/index.js:129
-msgid "Error loading block: %s"
-msgstr ""
-
-#: packages/blocks/components/server-side-render/index.js:135
-msgid "No results found."
 msgstr ""
 
 #: packages/blocks/fields/datetime/index.js:59
@@ -71,29 +63,29 @@ msgstr ""
 msgid "Search..."
 msgstr ""
 
-#: packages/core/fields/association/index.js:168
+#: packages/core/fields/association/index.js:113
 msgid "Maximum number of items reached (%s items)"
 msgstr ""
 
-#: packages/core/fields/association/index.js:266
+#: packages/core/fields/association/index.js:204
 msgid "Showing %1$d of %2$d results"
 msgstr ""
 
-#: packages/core/fields/association/index.js:456
+#: packages/core/fields/association/index.js:380
 msgid "An error occurred while trying to fetch association options."
 msgstr ""
 
-#: packages/core/fields/association/index.js:513
+#: packages/core/fields/association/index.js:430
 #: packages/core/fields/complex/index.js:428
 #: packages/core/hocs/with-validation/required.js:20
 msgid "This field is required."
 msgstr ""
 
-#: packages/core/fields/association/index.js:517
+#: packages/core/fields/association/index.js:434
 msgid "Minimum number of items not reached (%s items)"
 msgstr ""
 
-#: packages/core/fields/color/index.js:92
+#: packages/core/fields/color/index.js:86
 msgid "Select a color"
 msgstr ""
 
@@ -173,7 +165,7 @@ msgstr ""
 msgid "Select Time"
 msgstr ""
 
-#: packages/core/hocs/with-conditional-logic/index.js:69
+#: packages/core/hocs/with-conditional-logic/index.js:62
 msgid "An unknown field is used in condition - \"%s\""
 msgstr ""
 
@@ -201,11 +193,11 @@ msgstr ""
 msgid "An error occured."
 msgstr ""
 
-#: packages/core/utils/fetch-attachments-data.js:24
+#: packages/core/utils/fetch-attachments-data.js:23
 msgid "An error occurred while trying to fetch files data."
 msgstr ""
 
-#: packages/metaboxes/containers/index.js:55
+#: packages/metaboxes/containers/index.js:52
 msgid "Could not find DOM element for container \"%1$s\"."
 msgstr ""
 
