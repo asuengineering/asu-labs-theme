@@ -1,16 +1,109 @@
-.alignleft {
-	display: inline;
+/* Alignment Classes, structure from TwentyTwenty */
+
+.entry-content > * {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.entry-content
+	> *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
+	max-width: 62.5rem;
+	width: calc(100% - 4rem);
+}
+
+[class*="__inner-container"]
+	> *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
+	max-width: 62.5rem;
+	width: 100%;
+}
+
+[class*="__inner-container"]
+	> *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright) {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Full */
+.alignfull,
+[class*="wp-block"].alignfull {
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 100vw;
+	position: relative;
+	width: 100%;
+}
+
+[class*="__inner-container"] > .alignfull {
+	max-width: 100%;
+}
+
+/* Wide */
+.alignwide,
+[class*="wp-block"].alignwide {
+	max-width: 70rem;
+	position: relative;
+	width: calc(100% - 4rem);
+}
+
+[class*="__inner-container"] > .alignwide {
+	width: 100%;
+}
+
+/* Center */
+.alignwide,
+[class*="wp-block"].alignwide,
+[class*="wp-block"].aligncenter img {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Left and right */
+.alignleft,
+.alignright [class*="wp-block"].alignleft,
+[class*="wp-block"].alignright {
+	max-width: 50%;
+}
+
+.alignleft,
+[class*="wp-block"].alignleft {
+	/*rtl:ignore*/
 	float: left;
-	margin-right: 1.5em;
+	margin: 0.5rem 2rem 2rem 2rem;
 }
 
-.alignright {
-	display: inline;
+.alignright,
+[class*="wp-block"].alignright {
+	/*rtl:ignore*/
 	float: right;
-	margin-left: 1.5em;
+	margin: 0.5rem 2rem 2rem 2rem;
 }
 
-.aligncenter {
-	clear: both;
-	@include center-block;
+[class*="wp-block"].alignfull:not(.has-background)
+	[class*="__inner-container"]
+	> .alignleft,
+[class*="wp-block"].alignfull:not(.has-background)
+	[class*="__inner-container"]
+	> p
+	.alignleft,
+[class*="wp-block"].alignfull:not(.has-background)
+	[class*="__inner-container"]
+	> .wp-block-image
+	.alignleft {
+	/*rtl:ignore*/
+	margin-left: 2rem;
+}
+
+[class*="wp-block"].alignfull:not(.has-background)
+	[class*="__inner-container"]
+	> .alignright,
+[class*="wp-block"].alignfull:not(.has-background)
+	[class*="__inner-container"]
+	> p
+	.alignright,
+[class*="wp-block"].alignfull:not(.has-background)
+	[class*="__inner-container"]
+	> .wp-block-image
+	.alignright {
+	/*rtl:ignore*/
+	margin-right: 2rem;
 }

@@ -1,197 +1,149 @@
 .sticky {
-  display: block;
+	display: block;
 }
 
 .hentry {
-  margin: 0 0 1.5em;
+	margin: 0 0 1.5em;
 }
 
 .updated:not(.published) {
-  display: none;
+	display: none;
 }
 
 .page-content,
 .entry-content,
 .entry-summary {
-  margin: 1.5em 0 0;
+	margin: 1.5em 0 0;
 }
 
 .page-links {
-  clear: both;
-  margin: 0 0 1.5em;
+	clear: both;
+	margin: 0 0 1.5em;
 }
 
 // Single posts. Specific to native post feature.
 .single-post {
-  .entry-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f0f0f0;
-    padding: 2em 0;
-  }
+	.entry-header {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: #f0f0f0;
+		padding: 2em 0;
+	}
 }
 
 // Single posts + default rules for any single-{}.php page.
 .single {
-  .post-thumbnail,
-  .entry-title,
-  .entry-meta {
-    @include normal-width;
+	.post-thumbnail,
+	.entry-title,
+	.entry-meta {
+		max-width: 62.5rem;
+		width: calc(100% - 4rem);
+	}
 
-    @include desktop-down {
-      padding-left: $desktop-padding;
-      padding-right: $desktop-padding;
-    }
-  }
+	.entry-title {
+		@include font-size(3);
+		margin-top: 0;
+		margin-bottom: 0;
+		padding: 0.3em 0;
+	}
 
-  .entry-title {
-    @include font-size(3);
-    margin-top: 0;
-    margin-bottom: 0;
-    padding: 0.3em 0;
+	.entry-meta {
+		border-top: 1px solid #b2b2b2;
+		margin-top: 0.5em;
+		padding-top: 0.5em;
 
-    @include desktop-down {
-      padding-left: 32px;
-      padding-right: 32px;
-    }
-  }
+		svg {
+			margin-right: 10px;
+		}
 
-  .entry-meta {
-    border-top: 1px solid #b2b2b2;
-    margin-top: 0.5em;
-    padding-top: 0.5em;
+		> span:after {
+			content: "|";
+			padding: 0 20px;
+		}
 
-    svg {
-      margin-right: 10px;
-    }
+		> span:last-child:after {
+			content: "";
+		}
+	}
 
-    > span:after {
-      content: "|";
-      padding: 0 20px;
-    }
-
-    > span:last-child:after {
-      content: "";
-    }
-  }
-
-  .entry-content,
-  .breadcrumbs,
-  #comments {
-    display: block;
-    margin: 0 auto;
-    @include normal-width;
-
-    @include desktop-down {
-      padding-left: $desktop-padding;
-      padding-right: $desktop-padding;
-    }
-  }
-
-  .entry-content > *.alignwide {
-    @include wide-width;
-  }
-
-  .entry-content > *.alignfull {
-    @include full-width;
-  }
+	.entry-content,
+	.breadcrumbs,
+	#comments {
+		display: block;
+		margin: 0 auto;
+	}
 }
 
 // Page Pages
 .page {
-  .entry-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f0f0f0;
-    padding: 2em 0;
+	.entry-header {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: #f0f0f0;
+		padding: 2em 0;
+	}
 
-    @include desktop-down {
-      padding-left: $desktop-padding;
-      padding-right: $desktop-padding;
-    }
-  }
+	.post-thumbnail,
+	.entry-title,
+	.entry-meta {
+		max-width: 62.5rem;
+		width: calc(100% - 4rem);
+	}
 
-  .post-thumbnail,
-  .entry-title,
-  .entry-meta {
-    @include normal-width;
-    width: 100%;
-  }
+	.entry-title {
+		@include font-size(3);
+		margin-top: 0;
+		margin-bottom: 0;
+		padding: 0.3em 0;
+	}
 
-  .entry-title {
-    @include font-size(3);
-    margin-top: 0;
-    margin-bottom: 0;
-    padding: 0.3em 20px;
-  }
+	.entry-meta {
+		border-top: 1px solid #b2b2b2;
+		margin-top: 0.5em;
+		padding-top: 0.5em;
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: flex-end;
 
-  .entry-meta {
-    border-top: 1px solid #b2b2b2;
-    margin-top: 0.5em;
-    padding-top: 0.5em;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
+		.breadcrumbs {
+			flex: 1 1 auto;
+			align-self: flex-start;
+		}
 
-    .breadcrumbs {
-      flex: 1 1 auto;
-      align-self: flex-start;
-    }
+		svg {
+			margin-right: 10px;
+		}
 
-    svg {
-      margin-right: 10px;
-    }
+		&-group > span:after {
+			content: "|";
+			padding: 0 20px;
+		}
 
-    &-group > span:after {
-      content: "|";
-      padding: 0 20px;
-    }
+		&-group > span:last-child:after {
+			content: "";
+			padding-right: 0;
+		}
+	}
 
-    &-group > span:last-child:after {
-      content: "";
-      padding-right: 0;
-    }
-  }
-
-  .entry-content,
-  #comments {
-    display: block;
-    margin: 0 auto;
-    @include normal-width;
-
-    @include desktop-down {
-      padding-left: $desktop-padding;
-      padding-right: $desktop-padding;
-    }
-  }
-
-  .alignwide {
-    max-width: 1140px;
-  }
-
-  .alignfull {
-    @include full-width;
-  }
+	#comments {
+		display: block;
+		margin: 0 auto;
+	}
 }
 
 // Minimal Styles for Home Page
 .home {
-  #above-posts .entry-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f0f0f0;
-    padding: 0em 0;
+	#above-posts .entry-header {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: #f0f0f0;
+		padding: 0em 0;
+	}
 
-    @include desktop-down {
-      padding-left: $desktop-padding;
-      padding-right: $desktop-padding;
-    }
-  }
-
-  &.page .entry-meta {
-    display: none;
-  }
+	&.page .entry-meta {
+		display: none;
+	}
 }
