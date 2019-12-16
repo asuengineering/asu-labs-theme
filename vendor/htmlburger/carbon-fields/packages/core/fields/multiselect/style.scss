@@ -3,6 +3,7 @@
    ========================================================================== */
 
 .cf-multiselect__control {
+	height: 30px;
 	min-height: 0;
 	border-color: $wp-color-gray-light-500;
 
@@ -50,7 +51,6 @@
 	input[id],
 	input[id]:focus {
 		box-shadow: none;
-
 	}
 }
 
@@ -67,6 +67,3 @@
 	}
 }
 
-.cf-multiselect__indicator {
-	padding: 5px;
-}
