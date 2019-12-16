@@ -34,12 +34,12 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		
+
 		<div class="person-details">
 
 			<?php
-				$degrees  = strip_tags( get_the_term_list( get_the_ID(), 'degree-program', '', ', ', '' ) );
-				$graddate = strip_tags( get_the_term_list( get_the_ID(), 'graduation-date', '', ', ', '' ) );
+				$degrees  = wp_strip_all_tags( get_the_term_list( get_the_ID(), 'degree-program', '', ', ', '' ) );
+				$graddate = wp_strip_all_tags( get_the_term_list( get_the_ID(), 'graduation-date', '', ', ', '' ) );
 
 			if ( ! empty( $degrees ) ) {
 				echo '<div class="detail-degree"><h4>Degree Program</h4>';
@@ -62,7 +62,7 @@
 					)
 				);
 
-				// Display connected pages
+				// Display connected pages.
 				if ( $connected_research->have_posts() ) :
 					?>
 				<div class="detail-research">
@@ -78,7 +78,7 @@
 				</div>
 
 					<?php
-					// Prevent weirdness
+					// Prevent weirdness.
 					wp_reset_postdata();
 
 				endif;
@@ -92,7 +92,7 @@
 					)
 				);
 
-				// Display connected pages
+				// Display connected pages.
 				if ( $connected_publication->have_posts() ) :
 					?>
 				<div class="detail-publication">
@@ -107,7 +107,7 @@
 					</ul>
 				</div>
 					<?php
-					// Prevent weirdness
+					// Prevent weirdness.
 					wp_reset_postdata();
 
 				endif;

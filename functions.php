@@ -8,6 +8,14 @@
  * @package asufaculty
  */
 
+add_action( 'after_setup_theme', 'asufaculty_carbonfields_metabox_load' );
+function asufaculty_carbonfields_metabox_load() {
+	require_once 'vendor/autoload.php';
+	\Carbon_Fields\Carbon_Fields::boot();
+
+	include_once get_template_directory() . '/inc/carbon-fields-meta.php';
+}
+
 if ( ! function_exists( 'asufaculty_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -222,7 +230,6 @@ require get_template_directory() . '/inc/pure-menu-walker.php';
 require get_template_directory() . '/inc/custom-post-type.php';
 require get_template_directory() . '/inc/custom-taxonomy.php';
 require get_template_directory() . '/inc/p2p-definition.php';
-require get_template_directory() . '/inc/carbon-fields-meta.php';
 
 /**
  * Composer autoload file. Used for breadcrumbs.
@@ -309,3 +316,5 @@ function asufaculty_remove_description_form() {
 
 add_action( 'research-theme_edit_form', 'asufaculty_remove_description_form' );
 add_action( 'research-theme_add_form', 'asufaculty_remove_description_form' );
+add_action( 'funding-source_add_form', 'asufaculty_remove_description_form' );
+add_action( 'funding-source_add_form', 'asufaculty_remove_description_form' );

@@ -23,7 +23,7 @@
 				echo esc_html( $all_status_options[ $projstatus ] );
 
 				$opportunity = carbon_get_the_post_meta( 'research_opportunity' );
-				if ( $opportunity === 'yes' ) {
+				if ( 'yes' === $opportunity ) {
 					echo '<span>, Research Opportunity Available</span>';
 				}
 				echo '</p>';
@@ -38,92 +38,83 @@
 
 	<div class="entry-content">
 		<?php the_content(); ?>
+	<div><!-- end .entry-header -->
 
-		<div class="content-meta">
+	<footer class="entry-footer">
+		<div class="publication-person">
+
 			<?php
-
-			$proj_funding = carbon_get_the_post_meta( 'research_funding' );
-			$proj_sponsor = carbon_get_the_post_meta( 'research_sponsor' );
-			$proj_poster  = carbon_get_the_post_meta( 'research_poster' );
-
-			if ( ! ( empty( $proj_funding ) ) ) {
-				echo '<h4>Funding</h4>';
-				echo '<p>' . esc_html( $proj_funding ) . '</p>';
-			}
-
-			if ( ! ( empty( $proj_sponsor ) ) ) {
-				echo '<h4>Sponsor</h4>';
-				echo '<p>' . esc_html( $proj_sponsor ) . '</p>';
-			}
-
-			if ( ! ( empty( $proj_poster ) ) ) {
-				echo '<h4>Poster</h4>';
-				echo '<div class="poster">';
-				echo '<a href="' . esc_html( $proj_poster ) . '" target="_blank">';
-				echo '<i class="fas fa-file-pdf"></i>';
-				echo '</a></div>';
-			}
-
 			// Display CPT results for connected people.
-			$connected_people = new WP_Query(
-				array(
-					'connected_type'  => 'person_to_research',
-					'connected_items' => get_queried_object(),
-					'nopaging'        => true,
-				)
-			);
+				$connected_people = new WP_Query(
+					array(
+						'connected_type'  => 'person_to_research',
+						'connected_items' => get_queried_object(),
+						'nopaging'        => true,
+					)
+				);
 
-			// Display connected pages
-			if ( $connected_people->have_posts() ) :
-				?>
-				<h4>People</h4>
-				<?php
-				while ( $connected_people->have_posts() ) :
-					$connected_people->the_post();
+				// Display connected pages.
+				if ( $connected_people->have_posts() ) :
 					?>
-					<div class="person clear">
-						<div class="thumbnail">
-							<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-								<?php
-								if ( has_post_thumbnail() ) {
-									the_post_thumbnail( array( 80, 80 ), array( 'class' => 'pure-img' ) );
-								} else {
-									echo '<img class="placeholder-img pure-img" src="' . get_bloginfo( 'stylesheet_directory' ) . '/images/person-placeholder.jpg" />';
-								}
-								?>
-							</a>
-						</div>
+					<h3>People</h3>
 
-						<?php
-						// Get person's full name from meta details.
-						$first  = carbon_get_the_post_meta( 'person_first_name' );
-						$middle = carbon_get_the_post_meta( 'person_middle_name' );
-						$last   = carbon_get_the_post_meta( 'person_last_name' );
-						$suffix = carbon_get_the_post_meta( 'person_suffix' );
-
-						// Append spaces if not blank. Assume there's always a last name.
-						if ( ! empty( carbon_get_the_post_meta( 'person_first_name' ) ) ) {
-							$first .= ' ';
-						}
-
-						if ( ! empty( carbon_get_the_post_meta( 'person_middle_name' ) ) ) {
-							$middle .= ' ';
-						}
-
-						echo '<h4 class="person-name"><a href="' . esc_url( get_permalink() ) . '">' . $first . $middle . $last . ' ' . $suffix . '</a></h4>';
-
+					<?php
+					while ( $connected_people->have_posts() ) :
+						$connected_people->the_post();
 						?>
-					</div><!-- end .person -->
-				<?php endwhile; ?>
+						<div class="person clear">
+							<div class="thumbnail">
+								<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+									<?php
+									if ( has_post_thumbnail() ) {
+										the_post_thumbnail( array( 80, 80 ), array( 'class' => 'pure-img' ) );
+									} else {
+										echo '<img class="placeholder-img pure-img" src="' . esc_html( ( 'stylesheet_directory' ) ) . '/images/person-placeholder.jpg" />';
+									}
+									?>
+								</a>
+							</div>
 
-				<?php
-				// Prevent weirdness.
-				wp_reset_postdata();
+							<?php
+							// Get person's full name from meta details.
+							$first  = carbon_get_the_post_meta( 'person_first_name' );
+							$middle = carbon_get_the_post_meta( 'person_middle_name' );
+							$last   = carbon_get_the_post_meta( 'person_last_name' );
+							$suffix = carbon_get_the_post_meta( 'person_suffix' );
+
+							// Append spaces if not blank. Assume there's always a last name.
+							if ( ! empty( carbon_get_the_post_meta( 'person_first_name' ) ) ) {
+								$first .= ' ';
+							}
+
+							if ( ! empty( carbon_get_the_post_meta( 'person_middle_name' ) ) ) {
+								$middle .= ' ';
+							}
+
+							echo '<h4 class="person-name"><a href="' . esc_url( get_permalink() ) . '">' . esc_html( $first ) . esc_html( $middle ) . esc_html( $last ) . ' ' . esc_html( $suffix ) . '</a></h4>';
+
+							$tagline = '';
+							$tagline = carbon_get_the_post_meta( 'person_tagline' );
+
+							if ( empty( $tagline ) ) {
+								// overwrite the tagline information with taxonomy information if it's blank.
+								$tagline = wp_strip_all_tags( get_the_term_list( get_the_ID(), 'faculty-type', '', ', ', '' ) );
+							}
+
+							// layout dependent on this tag being here, even if it's empty.
+							echo '<p class="person-tagline">' . esc_html( $tagline ) . '</p>';
+							?>
+						</div><!-- end .person -->
+					<?php endwhile; ?>
+
+					<?php
+					// Prevent weirdness.
+					wp_reset_postdata();
 
 				endif;
 
-				// Display CPT results for connected research.
-				$connected_research = new WP_Query(
+				// Post loop for connected publications.
+				$connected_publication = new WP_Query(
 					array(
 						'connected_type'  => 'research_to_publication',
 						'connected_items' => get_queried_object(),
@@ -132,26 +123,26 @@
 				);
 
 				// Display connected pages.
-				if ( $connected_research->have_posts() ) :
+				if ( $connected_publication->have_posts() ) :
 					?>
-
-					<h3>Publications</h3>
-					<?php
-					while ( $connected_research->have_posts() ) :
-						$connected_research->the_post();
-						?>
-						<div class="project">
-							<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
-						</div><!-- end .project -->
-						<?php
-					endwhile;
-					?>
-
+					<div class="detail-publication">
+						<h3>Publications</h3>
+						<ul>
+							<?php
+							while ( $connected_publication->have_posts() ) :
+								$connected_publication->the_post();
+								?>
+								<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+							<?php endwhile; ?>
+						</ul>
+					</div>
 					<?php
 					// Prevent weirdness.
 					wp_reset_postdata();
 
 				endif;
 				?>
+		</div><!-- end .publication-person -->
+	</footer>
 
 </article><!-- #post-<?php the_ID(); ?> -->

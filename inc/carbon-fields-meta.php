@@ -3,10 +3,6 @@
  * Carbon Fields: Metabox definitions.
  */
 
-// ===============================================
-// Carbon Fields, Defining metaboxes for CPTs
-// ===============================================
-
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
@@ -112,6 +108,16 @@ function asufaculty_carbonfields_register_facultycpt_meta() {
 					->set_value_type( 'url' ),
 			)
 		);
+
+	Container::make( 'term_meta', 'Funding Sources Details' )
+	->where( 'term_taxonomy', '=', 'funding-source' )
+	->add_fields(
+		array(
+			Field::make( 'image', 'funding_image', 'Funding Source Image' )
+				->set_help_text( 'Select a thumbnail image for this funding source. Square formating is best.' )
+				->set_value_type( 'url' ),
+		)
+	);
 }
 
 // Separate function for select box in research project post meta area. Helps with retrieving the values later.
@@ -124,10 +130,4 @@ function asufaculty_research_status_options() {
 		'pending'   => 'Pending Publication',
 		'published' => 'Published',
 	);
-}
-
-add_action( 'after_setup_theme', 'asufaculty_carbonfields_facultycpt_load' );
-function asufaculty_carbonfields_facultycpt_load() {
-	\Carbon_Fields\Carbon_Fields::boot();
-	// The breadcrumbs plugin is already loading the Composer autoload file.
 }
