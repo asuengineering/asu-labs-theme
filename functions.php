@@ -217,9 +217,12 @@ require get_template_directory() . '/inc/asu-globals.php';
 require get_template_directory() . '/inc/pure-menu-walker.php';
 
 /**
- * Custom post types and taxonomies. Other data shaping activities.
+ * Custom post types, taxonomies, post 2 post relationships and meta boxes.
  */
-require get_template_directory() . '/inc/cpt-research.php';
+require get_template_directory() . '/inc/custom-post-type.php';
+require get_template_directory() . '/inc/custom-taxonomy.php';
+require get_template_directory() . '/inc/p2p-definition.php';
+require get_template_directory() . '/inc/carbon-fields-meta.php';
 
 /**
  * Composer autoload file. Used for breadcrumbs.
@@ -283,3 +286,26 @@ function asufaculty_add_additional_home_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'asufaculty_add_additional_home_classes' );
+
+
+// Admin Menu Reordering
+// http://randyhoyt.com/wordpress/admin/
+add_action( 'admin_menu', 'asufaculty_change_admin_menu_order' );
+function asufaculty_change_admin_menu_order() {
+	global $menu;
+	$menu[6]  = $menu[5]; // Moves Posts down a slot
+	$menu[5]  = $menu[20]; // Moves Pages above Posts
+	$menu[24] = $menu[10]; // Moves Media right above comments
+	unset( $menu[10] ); // Empty 10 slot
+	unset( $menu[20] ); // Empty the 20-slot.
+}
+
+
+// Remove generic description field from taxonomy screen.
+// https://wordpress.stackexchange.com/a/308418/69368
+function asufaculty_remove_description_form() {
+	echo '<style> .term-description-wrap { display:none; } </style>';
+}
+
+add_action( 'research-theme_edit_form', 'asufaculty_remove_description_form' );
+add_action( 'research-theme_add_form', 'asufaculty_remove_description_form' );
