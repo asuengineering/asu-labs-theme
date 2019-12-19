@@ -79,10 +79,20 @@
 			margin: 10px auto;
 		}
 
-		.publication-research,
-		.publication-person {
-			flex: 1 0 50%;
-			padding-right: 5em;
+		.related-person,
+		.related-publication,
+		.funding-sources {
+			flex: 1 0 33.3%;
+			padding-right: 2em;
+		}
+
+		@include mobile {
+			.related-person,
+			.related-publication,
+			.funding-sources {
+				flex: 1 0 100%;
+				padding-right: 0;
+			}
 		}
 
 		.placeholder-img {
@@ -102,12 +112,22 @@
 			}
 		}
 
-		.project {
-			h4 {
-				margin-bottom: 0;
+		.detail-publication {
+			ul {
+				margin: 0;
 			}
-			.research-status {
-				text-transform: capitalize; //sneaky!
+		}
+
+		.fund {
+			margin-bottom: 1em;
+
+			.placeholder-img {
+				float: left;
+				margin-right: 10px;
+			}
+
+			h4 {
+				display: inline;
 			}
 		}
 	}

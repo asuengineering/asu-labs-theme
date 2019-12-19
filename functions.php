@@ -223,13 +223,6 @@ require get_template_directory() . '/inc/asu-globals.php';
 require get_template_directory() . '/inc/pure-menu-walker.php';
 
 /**
- * Composer autoload file. Used for breadcrumbs.
- */
-if ( file_exists( get_parent_theme_file_path( 'vendor/autoload.php' ) ) ) {
-	require_once get_parent_theme_file_path( 'vendor/autoload.php' );
-}
-
-/**
  * Custom post types, taxonomies, post 2 post relationships and meta boxes.
  */
 require get_template_directory() . '/inc/custom-post-type.php';

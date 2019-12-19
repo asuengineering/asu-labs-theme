@@ -53,20 +53,6 @@ function asufaculty_carbonfields_register_facultycpt_meta() {
 		->set_context( 'normal' )
 		->add_fields(
 			array(
-				Field::make( 'text', 'research_funding', 'Describe the funding source for this project.' )
-					->set_width( 50 )
-					->set_help_text( 'Inline HTML styles like strong and a are allowed.' ),
-				Field::make( 'text', 'research_sponsor', 'If the project was sponsored by a company, provide those details here.' )
-					->set_width( 50 )
-					->set_help_text( 'Inline HTML styles like strong and a are allowed.' ),
-				// TBD: Develop feature which marks the research project as an opportunity for people to participate in.
-				// Could enable an RFI like form for those not enrolled as an ASU student, or a form to contact someone within the campus for additional details.
-				// Gathering all of these ideas together results in the opportunities section located at https://undergraduate-research.engineering.asu.edu/
-					// Field::make('checkbox', 'research_opportunity', 'Opportunity to participate?' )
-					// ->set_option_value( 'yes' )
-					// ->set_default_value( '' )
-					// ->set_help_text( 'Checking this box will mark this research project as an available opportunity for student participation.' )
-					// ->set_width( 50 ),
 				Field::make( 'select', 'research_project_status', 'What is the current status of this research project?' )
 					->set_width( 50 )
 					->add_options( 'asufaculty_research_status_options' ),
@@ -95,7 +81,6 @@ function asufaculty_carbonfields_register_facultycpt_meta() {
 					->set_width( 25 )
 					->set_help_text( 'Use an image of the PDF download as the featured image for the post. Link to the actual PDF here.' )
 					->set_value_type( 'url' ),
-
 			)
 		);
 

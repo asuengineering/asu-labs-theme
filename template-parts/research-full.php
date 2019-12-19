@@ -41,7 +41,7 @@
 	<div><!-- end .entry-header -->
 
 	<footer class="entry-footer">
-		<div class="publication-person">
+		<div class="related-person">
 
 			<?php
 			// Display CPT results for connected people.
@@ -112,37 +112,63 @@
 					wp_reset_postdata();
 
 				endif;
-
-				// Post loop for connected publications.
-				$connected_publication = new WP_Query(
-					array(
-						'connected_type'  => 'research_to_publication',
-						'connected_items' => get_queried_object(),
-						'nopaging'        => true,
-					)
-				);
-
-				// Display connected pages.
-				if ( $connected_publication->have_posts() ) :
-					?>
-					<div class="detail-publication">
-						<h3>Publications</h3>
-						<ul>
-							<?php
-							while ( $connected_publication->have_posts() ) :
-								$connected_publication->the_post();
-								?>
-								<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-							<?php endwhile; ?>
-						</ul>
-					</div>
-					<?php
-					// Prevent weirdness.
-					wp_reset_postdata();
-
-				endif;
 				?>
-		</div><!-- end .publication-person -->
-	</footer>
+			</div><!-- end .publication-person -->
+
+			<?php
+			// Related publications. Start new post loop for connected publications.
+			$connected_publication = new WP_Query(
+				array(
+					'connected_type'  => 'research_to_publication',
+					'connected_items' => get_queried_object(),
+					'nopaging'        => true,
+				)
+			);
+
+			// Display connected publiations.
+			if ( $connected_publication->have_posts() ) :
+				?>			
+				<div class="related-publication">
+					<h3>Publications</h3>
+					<ul>
+						<?php
+						while ( $connected_publication->have_posts() ) :
+							$connected_publication->the_post();
+							?>
+							<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+						<?php endwhile; ?>
+					</ul>
+				</div>
+
+				<?php
+				// Prevent weirdness.
+				wp_reset_postdata();
+
+			endif;
+			?>
+
+			<?php
+			// Funding Sources Column.
+			$funding = get_the_terms( get_queried_object_id(), 'funding-source' );
+			if ( $funding && ! is_wp_error( $funding ) ) {
+				echo '<div class="funding-sources">';
+				echo '<h3>Funding Sources</h3>';
+				foreach ( $funding as $fund ) {
+
+					$fundimage = '';
+					$fundimage = carbon_get_term_meta( $fund->term_id, 'funding_image' );
+					if ( ! empty( $fundimage ) ) {
+						$fundimage = '<img class="placeholder-img pure-img" src="' . $fundimage . '" />';
+					}
+
+					echo '<div class="fund clear">' . $fundimage;
+					echo '<h4>' . esc_html( $fund->name ) . '</h4>';
+					echo '<p class="desc">' . esc_html( $fund->description ) . '</p>';
+					echo '</div>';
+				}
+				echo '</div><!-- end .funding-source -->';
+			}
+			?>
+		</footer>
 
 </article><!-- #post-<?php the_ID(); ?> -->
