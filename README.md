@@ -13,7 +13,7 @@ This theme brings to life several templates and custom post types that we common
 
 ## Requirements
 
-To form the relationships needed between our custom post types, this theme requires the use of a plugin called [Posts 2 Posts](https://github.com/asuengineering/wp-posts-to-posts). 
+To form the relationships needed between our custom post types, this theme requires the use of a plugin called [Posts 2 Posts](https://github.com/asuengineering/wp-posts-to-posts).
 
 - It's an oldie but a goodie. Still working within WP 5.0, even if the original was abandoned in 2016.
 - ASU Engineering maintains an active fork of the original plugin to deal with any "breakage" that might occur over time.
@@ -22,12 +22,17 @@ To form the relationships needed between our custom post types, this theme requi
 
 ## Enhancements
 
+### Version 1.6
+
+- Added better support for Gutenberg. Adjustments include using ASU color palette, changing the editor styles that match the production site and adding support for wide and full-width alignments on the blocks which support them.
+- Refactored `single-research` to remove the floating sidebar. Relationships between research projects and publications are all now located in the footer of the page.
+- Added `Funding Sources` as a formal taxonomy to support research projects. Enables the ability to assign multiple projects to the same funding source, as well as a much better interface for keeping track of that info.
+
 ### Version 1.5 (Current)
 
 - Adds support to display blog posts on the home page.
 - The gold background on post archive pages was way too bright. This update makes is so sunglasses are no longer required.
 - Removes unused widget sidebar area and registers two additional sidebar areas. One for under the main navigation, and a second to add context above the blog post listings on the home page.
-
 
 ### Version 1.4.1
 
@@ -52,7 +57,7 @@ To form the relationships needed between our custom post types, this theme requi
 
 ### Version 1.1
 
-The most current version of the theme marks our first example of this theme in production. 
+The most current version of the theme marks our first example of this theme in production.
 
 - Completed templates for a single publications, research projects and research topics pages.
 - Corrected several display problems with `single-person.php` and the related `archive-person.php` directory view.
