@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f64d919157a0073248259010fcec70c7",
+    "content-hash": "f157e159964e33e7cb9bc985f9112e91",
     "packages": [
         {
             "name": "htmlburger/carbon-fields",
-            "version": "v3.1.8",
+            "version": "v3.1.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/htmlburger/carbon-fields.git",
-                "reference": "61e85c528064f6fb0d831b372496974a907cdb27"
+                "reference": "deee40390e8cd1d50ee215522e47689ef6b4e404"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/htmlburger/carbon-fields/zipball/61e85c528064f6fb0d831b372496974a907cdb27",
-                "reference": "61e85c528064f6fb0d831b372496974a907cdb27",
+                "url": "https://api.github.com/repos/htmlburger/carbon-fields/zipball/deee40390e8cd1d50ee215522e47689ef6b4e404",
+                "reference": "deee40390e8cd1d50ee215522e47689ef6b4e404",
                 "shasum": ""
             },
             "require": {
@@ -137,7 +137,7 @@
             ],
             "description": "WordPress developer-friendly custom fields for post types, taxonomy terms, users, comments, widgets, options and more.",
             "homepage": "http://carbonfields.net/",
-            "time": "2019-11-19T08:23:34+00:00"
+            "time": "2019-12-17T09:45:38+00:00"
         },
         {
             "name": "justintadlock/hybrid-breadcrumbs",

@@ -12,8 +12,6 @@ add_action( 'after_setup_theme', 'asufaculty_carbonfields_metabox_load' );
 function asufaculty_carbonfields_metabox_load() {
 	require_once 'vendor/autoload.php';
 	\Carbon_Fields\Carbon_Fields::boot();
-
-	include_once get_template_directory() . '/inc/carbon-fields-meta.php';
 }
 
 if ( ! function_exists( 'asufaculty_setup' ) ) :
@@ -225,18 +223,20 @@ require get_template_directory() . '/inc/asu-globals.php';
 require get_template_directory() . '/inc/pure-menu-walker.php';
 
 /**
- * Custom post types, taxonomies, post 2 post relationships and meta boxes.
- */
-require get_template_directory() . '/inc/custom-post-type.php';
-require get_template_directory() . '/inc/custom-taxonomy.php';
-require get_template_directory() . '/inc/p2p-definition.php';
-
-/**
  * Composer autoload file. Used for breadcrumbs.
  */
 if ( file_exists( get_parent_theme_file_path( 'vendor/autoload.php' ) ) ) {
 	require_once get_parent_theme_file_path( 'vendor/autoload.php' );
 }
+
+/**
+ * Custom post types, taxonomies, post 2 post relationships and meta boxes.
+ */
+require get_template_directory() . '/inc/custom-post-type.php';
+require get_template_directory() . '/inc/custom-taxonomy.php';
+require get_template_directory() . '/inc/carbon-fields-meta.php';
+require get_template_directory() . '/inc/p2p-definition.php';
+
 
 // Remove the label before the term title for research-themes
 function asufaculty_remove_archive_term_label( $title ) {
@@ -316,5 +316,3 @@ function asufaculty_remove_description_form() {
 
 add_action( 'research-theme_edit_form', 'asufaculty_remove_description_form' );
 add_action( 'research-theme_add_form', 'asufaculty_remove_description_form' );
-add_action( 'funding-source_add_form', 'asufaculty_remove_description_form' );
-add_action( 'funding-source_add_form', 'asufaculty_remove_description_form' );
