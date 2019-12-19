@@ -17,7 +17,8 @@ if ( ! function_exists( 'asufaculty_posted_on' ) ) :
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
 		}
 
-		$time_string = sprintf( $time_string,
+		$time_string = sprintf(
+			$time_string,
 			esc_attr( get_the_date( DATE_W3C ) ),
 			esc_html( get_the_date() ),
 			esc_attr( get_the_modified_date( DATE_W3C ) ),
@@ -73,8 +74,6 @@ if ( ! function_exists( 'asufaculty_entry_footer' ) ) :
 			}
 		}
 
-
-
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			echo '<span class="comments-link">';
 			comments_popup_link(
@@ -118,14 +117,14 @@ if ( ! function_exists( 'asufaculty_page_entry_footer' ) ) :
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
 	function asufaculty_page_entry_footer() {
-		
+
 		// Breadcrumb, via Justin Tadlock
-		$options = ['labels' => ['title' => '']];
-		Hybrid\Breadcrumbs\Trail::display($options);
+		$options = array( 'labels' => array( 'title' => '' ) );
+		Hybrid\Breadcrumbs\Trail::display( $options );
 
 		echo '<div class="entry-meta-group">';
 
-		if (!is_page()) {
+		if ( ! is_page() ) {
 			asufaculty_posted_on();
 		}
 
@@ -166,7 +165,7 @@ if ( ! function_exists( 'asufaculty_post_thumbnail' ) ) :
 			?>
 
 			<div class="post-thumbnail">
-				<?php the_post_thumbnail('asufaculty-single', ['class' => 'pure-img']); ?>
+				<?php the_post_thumbnail( 'asufaculty-single', array( 'class' => 'pure-img' ) ); ?>
 			</div><!-- .post-thumbnail -->
 
 		<?php else : ?>
@@ -174,31 +173,35 @@ if ( ! function_exists( 'asufaculty_post_thumbnail' ) ) :
 		<header class="entry-header">
 			<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 				<?php
-				the_post_thumbnail( 'asufaculty-archive', array(
-					'alt' => the_title_attribute( array(
-						'echo' => false,
-					) ),
-					'class' => 'pure-img',
-				) );
+				the_post_thumbnail(
+					'asufaculty-archive',
+					array(
+						'alt'   => the_title_attribute(
+							array(
+								'echo' => false,
+							)
+						),
+						'class' => 'pure-img',
+					)
+				);
 				?>
 			</a>
 		</header><!-- .entry-header -->
 
-		<?php
+			<?php
 		endif; // End is_singular().
 	}
 endif;
 
 // add featured image size
-add_image_size('asufaculty-single', 1600, 900, true);
-add_image_size('asufaculty-archive', 400, 250, true);
-add_image_size('asufaculty-square', 400, 400, array( 'center', 'top' ));
+add_image_size( 'asufaculty-single', 1600, 900, true );
+add_image_size( 'asufaculty-archive', 400, 250, true );
+add_image_size( 'asufaculty-square', 400, 400, array( 'center', 'top' ) );
 
 // remove width & height attributes from featured images
 add_filter( 'post_thumbnail_html', 'asufaculty_remove_img_attr' );
-function asufaculty_remove_img_attr ($html)
-{
-    return preg_replace('/(width|height)="\d+"\s/', "", $html);
+function asufaculty_remove_img_attr( $html ) {
+	return preg_replace( '/(width|height)="\d+"\s/', '', $html );
 }
 
 // Custom excerpt length

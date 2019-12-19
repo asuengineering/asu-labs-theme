@@ -24,7 +24,7 @@ import stripCompactInputPrefix from '../../utils/strip-compact-input-prefix';
  */
 function findFieldByName( fields, name ) {
 	return find( fields, ( field ) => {
-		return field.name.indexOf( name ) === 0;
+		return field.name === name;
 	} );
 }
 
@@ -64,7 +64,9 @@ addFilter( 'carbon-fields.association.metabox', 'carbon-fields/metaboxes', withP
 				}
 
 				if ( isNestedComplex ) {
-					const field = findFieldByName( fields, chunk );
+					const fieldReferences = get( fields, accessor.replace( /\.name$/, '.fields' ) );
+					const fieldReference = findFieldByName( fieldReferences, chunk );
+					const field = find( fields, [ 'id', fieldReference.id ] );
 
 					accessor = fields.indexOf( field );
 					hierarchy = `${ hierarchy }${ field.base_name }`;

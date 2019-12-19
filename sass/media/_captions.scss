@@ -1,4 +1,5 @@
 .wp-caption {
+	@include normal-width;
 	margin-bottom: 1.5em;
 	max-width: 100%;
 

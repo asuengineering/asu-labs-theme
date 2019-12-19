@@ -67,13 +67,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		<nav id="menu">
 			<div class="pure-menu pure-menu-vertical">
 				<?php
-					wp_nav_menu(array(
-						'theme_location' => 'primary',
-						'depth' => 2,
-						'container' => false,
-						'menu_class' => 'pure-menu-list',
-						'fallback_cb' => 'pure_menu_walker::fallback',
-						'walker' => new pure_menu_walker())
+					wp_nav_menu(
+						array(
+							'theme_location' => 'primary',
+							'depth'          => 2,
+							'container'      => false,
+							'menu_class'     => 'pure-menu-list',
+							'fallback_cb'    => 'pure_menu_walker::fallback',
+							'walker'         => new pure_menu_walker(),
+						)
 					);
 					?>
 			</div>

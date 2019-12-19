@@ -18,11 +18,6 @@ get_header();
 			the_post();
 
 			get_template_part( 'template-parts/content-single', get_post_type() );
-			
-			$options = ['labels' => ['title' => "Browse"],
-						'title_tag' => 'h3'
-						];
-			Hybrid\Breadcrumbs\Trail::display($options);
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
@@ -36,5 +31,4 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-// get_sidebar();
 get_footer();

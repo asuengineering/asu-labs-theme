@@ -1,7 +1,7 @@
 <?php
 /**
  * The template for displaying taxonomy term pages for the taxonomy research-theme.
- * Add some specific formatting and term meta for this taxonomy. 
+ * Add some specific formatting and term meta for this taxonomy.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -17,26 +17,27 @@ get_header();
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
-                <div class="container">
-                    <div class="term-meta">
-                        <p class="pretext">Research Topic:</p>
-                        <?php
-                        the_archive_title( '<h1 class="page-title">', '</h1>' );
-                        echo apply_filters( 'the_content', carbon_get_term_meta( get_queried_object_id(), 'theme_description' ));
-                        ?>
-                    </div>
-                    <?php 
-                        $themeimage = carbon_get_term_meta( get_queried_object_id(), 'theme_image' );
-                        if (!empty($themeimage)) {
-                            echo '<img class="term-image pure-img" src="' . $themeimage . '" alt="Research Theme Featured Image"/>';
-                        }
-                    ?> 
-                </div>
+				<div class="container">
+					<div class="term-meta">
+						<p class="pretext">Research Topic:</p>
+						<?php
+						the_archive_title( '<h1 class="page-title">', '</h1>' );
+						echo apply_filters( 'the_content', carbon_get_term_meta( get_queried_object_id(), 'theme_description' ) );
+						?>
+					</div>
+					<?php
+						$themeimage = carbon_get_term_meta( get_queried_object_id(), 'theme_image' );
+					if ( ! empty( $themeimage ) ) {
+						echo '<img class="term-image pure-img" src="' . $themeimage . '" alt="Research Theme Featured Image"/>';
+					}
+					?>
+					 
+				</div>
 			</header><!-- .page-header -->
-            
-			<?php 
-			// Make two post loops, one for each related CPT. More expensive, but also allows for better customization.
 			
+			<?php
+			// Make two post loops, one for each related CPT. More expensive, but also allows for better customization.
+
 			$themeid = get_queried_object_id();
 
 			$args_projects = array(
@@ -61,7 +62,7 @@ get_header();
 					// Do loop stuff here. Call the template, mostly.
 					get_template_part( 'template-parts/research-all' );
 				}
-				
+
 				wp_reset_postdata();
 			}
 
@@ -80,7 +81,7 @@ get_header();
 
 			if ( $query_publications->have_posts() ) {
 				echo '<h2 class="section-label">Related Publications</h2>';
-				
+
 				// The 2nd Loop
 				while ( $query_publications->have_posts() ) {
 					$query_publications->the_post();
@@ -91,20 +92,21 @@ get_header();
 				wp_reset_postdata();
 			}
 
-			?> 
+			?>
+			 
 			
 			
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) :
-                the_post();
-                
+				the_post();
+
 				/*
 				 * Include the Post-Type-specific template for the content.
 				 * If you want to override this in a child theme, then include a file
 				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
 				 */
-				
+
 
 			endwhile;
 

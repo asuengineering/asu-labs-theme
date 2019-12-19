@@ -25,13 +25,13 @@
 
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
-	width: map-get( $columns, $numberColumns ) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+	width: map-get($columns, $numberColumns) -
+		(($columns__margin * ($numberColumns - 1)) / $numberColumns);
 }
 
-// max-width for single column layouts.
-@mixin max-width($width-value:1000px) {
-	width:100%;
-	max-width: $width-value;
+@mixin normal-width {
+	max-width: 62.5rem;
+	width: calc(100% - 4rem);
 }
 
 // Responsive Breakpoint Definitions
@@ -58,4 +58,3 @@
 		@content;
 	}
 }
- 

@@ -7,7 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Hybrid\\Breadcrumbs\\' => array($vendorDir . '/justintadlock/hybrid-breadcrumbs/src'),
-    'Composer\\Installers\\' => array($vendorDir . '/composer/installers/src/Composer/Installers'),
-    'Carbon_Fields_Plugin\\' => array($baseDir . '/wp-content/plugins/carbon-fields-plugin/core'),
     'Carbon_Fields\\' => array($vendorDir . '/htmlburger/carbon-fields/core'),
 );
