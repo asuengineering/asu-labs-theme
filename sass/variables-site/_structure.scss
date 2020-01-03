@@ -1,22 +1,12 @@
 /* CSS Grid Layout for the whole site. */
 
 #page {
-  display: grid;
+	display: grid;
+	grid-template-areas: "navigation content";
 
-  grid-template-areas:
-  "global-header global-header"
-  "navigation content"
-	"global-footer global-footer";
-
-  grid-template-columns: 300px 1fr;
-  grid-template-rows: 110px 1fr 105px;
-  grid-gap: 0;
-
-  height: 100vh;
-}
-
-#asu-global-header {
-	grid-area: global-header;
+	grid-template-columns: 300px 1fr;
+	grid-template-rows: 1fr;
+	grid-gap: 0;
 }
 
 #masthead {
@@ -26,72 +16,94 @@
 }
 
 #content {
-  grid-area: content;
+	grid-area: content;
 }
 
-#page #innovation-footer {
-	grid-area: global-footer;
-	position: relative; /* Overrides default CSS from the ASU Module */
+#mobile-header {
+	grid-area: mobile-header;
+	background: #353535;
+	display: none;
 }
+
+#mobile-title {
+	grid-area: mobile-title;
+	background: #8c1d40;
+	display: none;
+}
+
+// #page #innovation-footer {
+// 	grid-area: global-footer;
+// 	position: relative; /* Overrides default CSS from the ASU Module */
+// }
 
 /* Collapse everything into a single columm */
 @media (min-width: 0) and (max-width: 990px) {
+	#page {
+		grid-template-areas:
+			"mobile-header"
+			"mobile-title"
+			"content";
+		grid-template-columns: 1fr;
+		grid-template-rows: auto 1fr auto;
+	}
 
-  #page {
-    grid-template-areas:
-      "global-header"
-      "content"
-      "global-footer";
+	#mobile-header,
+	#mobile-title {
+		display: grid;
+	}
 
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
-  }
+	#masthead {
+		position: fixed; /* or choose `absolute` depending on desired behavior*/
+		top: 0;
+		bottom: 0;
+		width: 300px;
+		left: -340px;
+		transition: transform 0.3s ease-in-out;
+		box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.85);
 
-  #masthead {
-    display:none;
-  }
+		&:target {
+			transform: translateX(340px);
+		}
 
-  // asumobile.js creates an .empty element that acts as a section break.
-  // Styled to look exactly like the dropdown title.
-  #asu_universal_nav_new .empty > span {
-    display: block;
-    padding: 12px 15px;
-    color: #fff;
-    background-color: #505558;
-    line-height: 1em;
-    letter-spacing: -0.5px;
-  }
+		a.toggle.close {
+			display: block;
+		}
 
-  #main-search form label {
-    display: none;
-  }
+		.site-branding,
+		.endorsed-logo {
+			display: none;
+		}
 
-  #innovation-footer .footer-menu ul.default {
-    display:block;
-    text-align:center;
-    margin:0;
-    padding:1em 0;
+		#menu {
+			margin-top: 50px;
+		}
+	}
 
-    li {
-        float:none;
-        display:inline;
-        text-align:center;
+	// #innovation-footer .footer-menu ul.default {
+	// 	display: block;
+	// 	text-align: center;
+	// 	margin: 0;
+	// 	padding: 1em 0;
 
-        &:last-child a:after {
-          content:"";
-          padding-left:0;
-        }
-    }
+	// 	li {
+	// 		float: none;
+	// 		display: inline;
+	// 		text-align: center;
 
-    a {
-        padding:0;
-        margin-right:10px;
+	// 		&:last-child a:after {
+	// 			content: "";
+	// 			padding-left: 0;
+	// 		}
+	// 	}
 
-        &:after {
-          content:"-";
-          padding-left:15px
-      }
-    }
-  }
-  
+	// 	a {
+	// 		padding: 0;
+	// 		margin-right: 10px;
+
+	// 		&:after {
+	// 			content: "-";
+	// 			padding-left: 15px;
+	// 		}
+	// 	}
+	// }
 }

@@ -44,6 +44,9 @@
 		margin: 0;
 		padding: 0;
 
+		max-width: 62.5rem;
+		width: calc(100% - 4rem);
+
 		li {
 			list-style-type: none;
 			display: block;
@@ -90,12 +93,16 @@
 			}
 		}
 
-		.contact-details li a {
+		.contact-details li {
 			font-weight: 500;
 			color: #ffffff;
 			line-height: 1.5;
 			font-size: 1.5rem;
-			border-bottom-color: #ffffff;
+
+			a {
+				color: #ffffff;
+				border-bottom-color: #ffffff;
+			}
 		}
 	}
 
