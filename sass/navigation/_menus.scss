@@ -1,50 +1,147 @@
 #masthead {
+	.site-header {
+		// position: sticky;
+		top: 20px;
+		min-height: 85vh;
+	}
+
+	.endorsed-logo {
+		position: relative;
+		bottom: 0;
+	}
+
+	.site-logo {
+		margin: 0 auto;
+		display: block;
+	}
+
 	.site-title {
-		font-size:1.5em;
+		font-size: 1.5em;
 		font-weight: 500;
-		background-color:#8c1d40;
-		padding:10px 20px;
-		margin: .75em -.25em 0 0;
+		background-color: #8c1d40;
+		padding: 10px 20px;
+		margin: 0.75em -0.25em 0 0;
 
 		a {
-			color:#ffffff;
+			color: #ffffff;
 			text-decoration: none;
 		}
 	}
 
 	.site-description {
-		margin: 0 -.25em 0 0;
+		margin: 0 -0.25em 0 0;
 		color: #333333;
 		background-color: #ffc627;
 		font-size: 120%;
 		font-weight: 500;
 		padding: 5px 20px;
 	}
+}
 
+#content.dimmed {
+	position: relative;
+	transition: background-color 1s ease;
+
+	&:after {
+		content: " ";
+		z-index: 10;
+		display: block;
+		position: absolute;
+		height: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		background: rgba(0, 0, 0, 0.5);
+	}
+}
+
+#mobile-header {
+	.container {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+
+		max-width: 62.5rem;
+		width: calc(100% - 4rem);
+
+		margin: 0 auto;
+
+		.mobile-logo {
+			flex: 0 1 auto;
+			height: 50px;
+			margin-left: -10px; // image contains padding
+		}
+
+		.hamburger {
+			top: 0;
+			right: 15px;
+			position: absolute;
+		}
+	}
+}
+
+#mobile-title {
+	.container {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+
+		max-width: 62.5rem;
+		width: calc(100% - 4rem);
+
+		margin: 0 auto;
+	}
+
+	.site-title {
+		margin: 0.5em 0;
+		line-height: 1;
+
+		a {
+			font-size: 16px;
+			font-weight: bold;
+			color: #ffffff;
+			text-decoration: none;
+		}
+	}
+}
+
+a.toggle.close {
+	color: #000000;
+	font-weight: 700;
+	background-color: #ffffff;
+	padding: 0.5em;
+	text-decoration: none;
+	position: absolute;
+	right: -5px;
+	top: 5px;
+	display: none;
+
+	svg {
+		margin-right: 5px;
+	}
 }
 
 /* Navigation Styling, from PureCSS */
 #menu {
-
-	.pure-menu-active>.pure-menu-link,
+	.pure-menu-active > .pure-menu-link,
 	.pure-menu-link:focus,
 	.pure-menu-link:hover {
 		background-color: #000000;
 	}
 
-  /* All anchors inside the menu should be styled like this. */
+	/* All anchors inside the menu should be styled like this. */
 	a {
 		color: #f1f1f1;
 		border: none;
 		padding: 0.6em 0 0.6em 0.6em;
-		font-size:16px;
-		font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-		font-weight:500;
+		font-size: 16px;
+		font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-weight: 500;
 		white-space: normal;
-    }
+	}
 
-    /* Remove all background/borders, since we are applying them to #menu. */
-    .pure-menu {
+	/* Remove all background/borders, since we are applying them to #menu. */
+	.pure-menu {
 		border: none;
 		background: transparent;
 
@@ -56,29 +153,28 @@
 		/*  For top level, active links */
 		.current-menu-item > a,
 		.current-menu-parent > a {
-			color:#FFB310;
+			color: #ffb310;
 			background: #000000;
 		}
 
 		.pure-menu-children {
-			background-color:#1f1f1f;
-			display:none;
+			background-color: #1f1f1f;
+			display: none;
 
 			& > .current-menu-item > a {
-				color:#f1f1f1;
+				color: #f1f1f1;
 			}
 
 			.menu-item {
-				border-left:2px solid #FFB310;
+				border-left: 2px solid #ffb310;
 			}
 
 			& > .menu-item > a {
-				padding-left:25px;
+				padding-left: 25px;
 			}
 		}
 	}
 
-	
 	// Override flyouts from original library.
 	.pure-menu-item .pure-menu-item {
 		display: block;
@@ -102,22 +198,21 @@
 
 	// Substitute FA5 Icon (JS) for embedded CSS icon
 	.pure-menu-has-children > .pure-menu-link:after {
-    padding-left: 0;
-    content: "";
+		padding-left: 0;
+		content: "";
 	}
 
 	.pure-menu-has-children svg {
-		margin-left:5px;
+		margin-left: 5px;
 	}
 
 	#home-icon-main-nav svg {
-		margin-right:10px;
+		margin-right: 10px;
 	}
 
 	.pure-menu-expanded > .pure-menu-link > svg {
 		transform: rotate(180deg);
 	}
-
 }
 
 /*************************************************/
@@ -140,7 +235,6 @@
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
-
 	.site-main & {
 		margin: 0 0 1.5em;
 		overflow: hidden;

@@ -14,7 +14,7 @@
 	</div><!-- #content -->
 
 	<!-- Begin ASU Footer -->
-	<?php asuwp_load_global_footer(); ?>
+	<?php // asuwp_load_global_footer(); ?>
 	<!-- END ASU Footer -->
 
 </div><!-- #page -->

@@ -45,14 +45,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /* CSS Grid Layout for the whole site. */
 #page {
   display: grid;
-  grid-template-areas: "global-header global-header" "navigation content" "global-footer global-footer";
+  grid-template-areas: "navigation content";
   grid-template-columns: 300px 1fr;
-  grid-template-rows: 110px 1fr 105px;
-  grid-gap: 0;
-  height: 100vh; }
-
-#asu-global-header {
-  grid-area: global-header; }
+  grid-template-rows: 1fr;
+  grid-gap: 0; }
 
 #masthead {
   grid-area: navigation;
@@ -63,46 +59,43 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 #content {
   grid-area: content; }
 
-#page #innovation-footer {
-  grid-area: global-footer;
-  position: relative;
-  /* Overrides default CSS from the ASU Module */ }
+#mobile-header {
+  grid-area: mobile-header;
+  background: #353535;
+  display: none; }
+
+#mobile-title {
+  grid-area: mobile-title;
+  background: #8c1d40;
+  display: none; }
 
 /* Collapse everything into a single columm */
 @media (min-width: 0) and (max-width: 990px) {
   #page {
-    grid-template-areas: "global-header" "content" "global-footer";
+    grid-template-areas: "mobile-header" "mobile-title" "content";
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto; }
+  #mobile-header,
+  #mobile-title {
+    display: grid; }
   #masthead {
-    display: none; }
-  #asu_universal_nav_new .empty > span {
-    display: block;
-    padding: 12px 15px;
-    color: #fff;
-    background-color: #505558;
-    line-height: 1em;
-    letter-spacing: -0.5px; }
-  #main-search form label {
-    display: none; }
-  #innovation-footer .footer-menu ul.default {
-    display: block;
-    text-align: center;
-    margin: 0;
-    padding: 1em 0; }
-    #innovation-footer .footer-menu ul.default li {
-      float: none;
-      display: inline;
-      text-align: center; }
-      #innovation-footer .footer-menu ul.default li:last-child a:after {
-        content: "";
-        padding-left: 0; }
-    #innovation-footer .footer-menu ul.default a {
-      padding: 0;
-      margin-right: 10px; }
-      #innovation-footer .footer-menu ul.default a:after {
-        content: "-";
-        padding-left: 15px; } }
+    position: fixed;
+    /* or choose `absolute` depending on desired behavior*/
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    left: -340px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.85); }
+    #masthead:target {
+      transform: translateX(340px); }
+    #masthead a.toggle.close {
+      display: block; }
+    #masthead .site-branding,
+    #masthead .endorsed-logo {
+      display: none; }
+    #masthead #menu {
+      margin-top: 50px; } }
 
 /*--------------------------------------------------------------
 # Normalize
@@ -685,23 +678,95 @@ textarea {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
+#masthead .site-header {
+  top: 20px;
+  min-height: 85vh; }
+
+#masthead .endorsed-logo {
+  position: relative;
+  bottom: 0; }
+
+#masthead .site-logo {
+  margin: 0 auto;
+  display: block; }
+
 #masthead .site-title {
   font-size: 1.5em;
   font-weight: 500;
   background-color: #8c1d40;
   padding: 10px 20px;
-  margin: .75em -.25em 0 0; }
+  margin: 0.75em -0.25em 0 0; }
   #masthead .site-title a {
     color: #ffffff;
     text-decoration: none; }
 
 #masthead .site-description {
-  margin: 0 -.25em 0 0;
+  margin: 0 -0.25em 0 0;
   color: #333333;
   background-color: #ffc627;
   font-size: 120%;
   font-weight: 500;
   padding: 5px 20px; }
+
+#content.dimmed {
+  position: relative;
+  transition: background-color 1s ease; }
+  #content.dimmed:after {
+    content: " ";
+    z-index: 10;
+    display: block;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5); }
+
+#mobile-header .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  max-width: 62.5rem;
+  width: calc(100% - 4rem);
+  margin: 0 auto; }
+  #mobile-header .container .mobile-logo {
+    flex: 0 1 auto;
+    height: 50px;
+    margin-left: -10px; }
+  #mobile-header .container .hamburger {
+    top: 0;
+    right: 15px;
+    position: absolute; }
+
+#mobile-title .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  max-width: 62.5rem;
+  width: calc(100% - 4rem);
+  margin: 0 auto; }
+
+#mobile-title .site-title {
+  margin: 0.5em 0;
+  line-height: 1; }
+  #mobile-title .site-title a {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none; }
+
+a.toggle.close {
+  color: #000000;
+  font-weight: 700;
+  background-color: #ffffff;
+  padding: 0.5em;
+  text-decoration: none;
+  position: absolute;
+  right: -5px;
+  top: 5px;
+  display: none; }
+  a.toggle.close svg {
+    margin-right: 5px; }
 
 /* Navigation Styling, from PureCSS */
 #menu {
@@ -716,7 +781,7 @@ textarea {
     border: none;
     padding: 0.6em 0 0.6em 0.6em;
     font-size: 16px;
-    font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 500;
     white-space: normal; }
   #menu .pure-menu {
@@ -728,7 +793,7 @@ textarea {
       background: transparent; }
     #menu .pure-menu .current-menu-item > a,
     #menu .pure-menu .current-menu-parent > a {
-      color: #FFB310;
+      color: #ffb310;
       background: #000000; }
     #menu .pure-menu .pure-menu-children {
       background-color: #1f1f1f;
@@ -736,7 +801,7 @@ textarea {
       #menu .pure-menu .pure-menu-children > .current-menu-item > a {
         color: #f1f1f1; }
       #menu .pure-menu .pure-menu-children .menu-item {
-        border-left: 2px solid #FFB310; }
+        border-left: 2px solid #ffb310; }
       #menu .pure-menu .pure-menu-children > .menu-item > a {
         padding-left: 25px; }
   #menu .pure-menu-item .pure-menu-item {
@@ -1125,7 +1190,9 @@ textarea {
 
 .single-person .contact-details {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  max-width: 62.5rem;
+  width: calc(100% - 4rem); }
   .single-person .contact-details li {
     list-style-type: none;
     display: block;
@@ -1157,12 +1224,14 @@ textarea {
     padding-left: 10px;
     margin-top: -10px; }
 
-.single-person #content .contact-details li a {
+.single-person #content .contact-details li {
   font-weight: 500;
   color: #ffffff;
   line-height: 1.5;
-  font-size: 1.5rem;
-  border-bottom-color: #ffffff; }
+  font-size: 1.5rem; }
+  .single-person #content .contact-details li a {
+    color: #ffffff;
+    border-bottom-color: #ffffff; }
 
 .single-person .entry-content {
   padding-top: 2em;
@@ -1856,5 +1925,180 @@ object {
 /*--------------------------------------------------------------
 # Font Awesome 5
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Hamburgers. Fancy, delicious.
+--------------------------------------------------------------*/
+/*!
+ * Hamburgers
+ * @description Tasty CSS-animated hamburgers
+ * @author Jonathan Suh @jonsuh
+ * @site https://jonsuh.com/hamburgers
+ * @link https://github.com/jonsuh/hamburgers
+ */
+/* Complete Type List
+$hamburger-types: (
+  3dx,
+  3dx-r,
+  3dy,
+  3dy-r,
+  3dxy,
+  3dxy-r,
+  arrow,
+  arrow-r,
+  arrowalt,
+  arrowalt-r,
+  arrowturn,
+  arrowturn-r,
+  boring,
+  collapse,
+  collapse-r,
+  elastic,
+  elastic-r,
+  emphatic,
+  emphatic-r,
+  minus,
+  slider,
+  slider-r,
+  spin,
+  spin-r,
+  spring,
+  spring-r,
+  stand,
+  stand-r,
+  squeeze,
+  vortex,
+  vortex-r
+) !default;
+*/
+.hamburger {
+  padding: 15px 15px;
+  display: inline-block;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: visible; }
+  .hamburger:hover {
+    opacity: 0.9; }
+  .hamburger.is-active:hover {
+    opacity: 0.9; }
+  .hamburger.is-active .hamburger-inner,
+  .hamburger.is-active .hamburger-inner::before,
+  .hamburger.is-active .hamburger-inner::after {
+    background-color: #fff; }
+
+.hamburger-box {
+  width: 40px;
+  height: 24px;
+  display: inline-block;
+  position: relative; }
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px; }
+  .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    width: 40px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 4px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease; }
+  .hamburger-inner::before, .hamburger-inner::after {
+    content: "";
+    display: block; }
+  .hamburger-inner::before {
+    top: -10px; }
+  .hamburger-inner::after {
+    bottom: -10px; }
+
+/*
+   * Arrow
+   */
+.hamburger--arrow.is-active .hamburger-inner::before {
+  transform: translate3d(-8px, 0, 0) rotate(-45deg) scale(0.7, 1); }
+
+.hamburger--arrow.is-active .hamburger-inner::after {
+  transform: translate3d(-8px, 0, 0) rotate(45deg) scale(0.7, 1); }
+
+/*
+   * Arrow Right
+   */
+.hamburger--arrow-r.is-active .hamburger-inner::before {
+  transform: translate3d(8px, 0, 0) rotate(45deg) scale(0.7, 1); }
+
+.hamburger--arrow-r.is-active .hamburger-inner::after {
+  transform: translate3d(8px, 0, 0) rotate(-45deg) scale(0.7, 1); }
+
+/*
+   * Boring
+   */
+.hamburger--boring .hamburger-inner, .hamburger--boring .hamburger-inner::before, .hamburger--boring .hamburger-inner::after {
+  transition-property: none; }
+
+.hamburger--boring.is-active .hamburger-inner {
+  transform: rotate(45deg); }
+  .hamburger--boring.is-active .hamburger-inner::before {
+    top: 0;
+    opacity: 0; }
+  .hamburger--boring.is-active .hamburger-inner::after {
+    bottom: 0;
+    transform: rotate(-90deg); }
+
+/*
+   * Spin
+   */
+.hamburger--spin .hamburger-inner {
+  transition-duration: 0.22s;
+  transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+  .hamburger--spin .hamburger-inner::before {
+    transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in; }
+  .hamburger--spin .hamburger-inner::after {
+    transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+.hamburger--spin.is-active .hamburger-inner {
+  transform: rotate(225deg);
+  transition-delay: 0.12s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+  .hamburger--spin.is-active .hamburger-inner::before {
+    top: 0;
+    opacity: 0;
+    transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out; }
+  .hamburger--spin.is-active .hamburger-inner::after {
+    bottom: 0;
+    transform: rotate(-90deg);
+    transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1); }
+
+/*
+   * Spin Reverse
+   */
+.hamburger--spin-r .hamburger-inner {
+  transition-duration: 0.22s;
+  transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+  .hamburger--spin-r .hamburger-inner::before {
+    transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in; }
+  .hamburger--spin-r .hamburger-inner::after {
+    transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+.hamburger--spin-r.is-active .hamburger-inner {
+  transform: rotate(-225deg);
+  transition-delay: 0.12s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+  .hamburger--spin-r.is-active .hamburger-inner::before {
+    top: 0;
+    opacity: 0;
+    transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out; }
+  .hamburger--spin-r.is-active .hamburger-inner::after {
+    bottom: 0;
+    transform: rotate(90deg);
+    transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1); }
 
 /*# sourceMappingURL=style.css.map */
