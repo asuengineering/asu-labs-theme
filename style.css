@@ -678,35 +678,37 @@ textarea {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-#masthead .site-header {
-  top: 20px;
-  min-height: 85vh; }
-
-#masthead .endorsed-logo {
-  position: relative;
-  bottom: 0; }
-
-#masthead .site-logo {
-  margin: 0 auto;
-  display: block; }
-
-#masthead .site-title {
-  font-size: 1.5em;
-  font-weight: 500;
-  background-color: #8c1d40;
-  padding: 10px 20px;
-  margin: 0.75em -0.25em 0 0; }
-  #masthead .site-title a {
-    color: #ffffff;
-    text-decoration: none; }
-
-#masthead .site-description {
-  margin: 0 -0.25em 0 0;
-  color: #333333;
-  background-color: #ffc627;
-  font-size: 120%;
-  font-weight: 500;
-  padding: 5px 20px; }
+#masthead {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh; }
+  #masthead .site-header {
+    flex: 0 1 auto;
+    margin-top: 20px; }
+  #masthead .site-footer {
+    flex: 0 1 auto; }
+  #masthead .custom-logo-link {
+    display: block; }
+  #masthead .custom-logo {
+    margin: 0 auto;
+    display: block; }
+  #masthead .site-title {
+    font-size: 1.5em;
+    font-weight: 500;
+    background-color: #8c1d40;
+    padding: 10px 20px;
+    margin: 0.75em -0.25em 0 0; }
+    #masthead .site-title a {
+      color: #ffffff;
+      text-decoration: none; }
+  #masthead .site-description {
+    margin: 0 -0.25em 0 0;
+    color: #333333;
+    background-color: #ffc627;
+    font-size: 120%;
+    font-weight: 500;
+    padding: 5px 20px; }
 
 #content.dimmed {
   position: relative;
@@ -779,7 +781,7 @@ a.toggle.close {
   #menu a {
     color: #f1f1f1;
     border: none;
-    padding: 0.6em 0 0.6em 0.6em;
+    padding: 0.6em 0 0.6em 1em;
     font-size: 16px;
     font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 500;
@@ -1033,6 +1035,54 @@ a.toggle.close {
   /* Make sure select elements fit in widgets. */ }
   .widget select {
     max-width: 100%; }
+
+#masthead .site-footer {
+  color: #ffffff;
+  padding: 1em 1.25em;
+  /* Endorsed logo transform on hover */ }
+  #masthead .site-footer a {
+    color: #cccccc;
+    border-bottom: 1px dotted #cccccc;
+    text-decoration: none; }
+    #masthead .site-footer a:hover {
+      color: #ffffff;
+      border-bottom: 1px dotted #ffffff; }
+  #masthead .site-footer .carbon_fields_asu-super-footer-endorsed-logo .footer-logo {
+    transition-duration: 0.5s;
+    transform: scale3d(1, 1, 1);
+    transform-origin: top left;
+    margin: -15px 0 0 -15px; }
+    #masthead .site-footer .carbon_fields_asu-super-footer-endorsed-logo .footer-logo:hover {
+      transform: scale3d(1.05, 1.05, 1.05);
+      cursor: pointer; }
+  #masthead .site-footer .carbon_fields_asu-super-footer-endorsed-logo .footer-logo-link {
+    border-bottom: none;
+    display: inline-block; }
+  #masthead .site-footer .carbon_fields_asu-super-footer-endorsed-logo .phone-link svg {
+    margin-right: 10px; }
+  #masthead .site-footer .carbon_fields_asu-super-footer-endorsed-logo p {
+    margin: 0.5em 0 0.5em;
+    font-size: 1rem; }
+  #masthead .site-footer .carbon_fields_asu-super-footer-social-media .social-icons {
+    float: none;
+    text-align: left;
+    padding: 0 0 1em 0;
+    margin: 0; }
+    #masthead .site-footer .carbon_fields_asu-super-footer-social-media .social-icons li {
+      margin-left: 0;
+      padding-left: 0;
+      margin-right: 6px;
+      display: inline-block; }
+    #masthead .site-footer .carbon_fields_asu-super-footer-social-media .social-icons a {
+      color: #a9a9a9;
+      font-size: 30px;
+      border-bottom: none;
+      line-height: 1; }
+      #masthead .site-footer .carbon_fields_asu-super-footer-social-media .social-icons a:hover {
+        color: #ffffff; }
+  #masthead .site-footer .btn.contribute {
+    border-bottom: none;
+    color: #ffffff; }
 
 /*--------------------------------------------------------------
 # Content

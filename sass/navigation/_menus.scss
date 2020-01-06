@@ -1,16 +1,23 @@
 #masthead {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 100vh;
+
 	.site-header {
-		// position: sticky;
-		top: 20px;
-		min-height: 85vh;
+		flex: 0 1 auto;
+		margin-top: 20px;
 	}
 
-	.endorsed-logo {
-		position: relative;
-		bottom: 0;
+	.site-footer {
+		flex: 0 1 auto;
 	}
 
-	.site-logo {
+	.custom-logo-link {
+		display: block;
+	}
+
+	.custom-logo {
 		margin: 0 auto;
 		display: block;
 	}
@@ -133,7 +140,7 @@ a.toggle.close {
 	a {
 		color: #f1f1f1;
 		border: none;
-		padding: 0.6em 0 0.6em 0.6em;
+		padding: 0.6em 0 0.6em 1em;
 		font-size: 16px;
 		font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
 		font-weight: 500;

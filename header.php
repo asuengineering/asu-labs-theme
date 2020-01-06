@@ -69,12 +69,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 	<header id="masthead">
 		<div class="site-header">
-
 			<a class="toggle close" href="#"><i class="far fa-times-circle"></i>Close</a>
 			<!-- you might also want to use a “×” -->
 		
 			<div class="site-branding">
-				<img src="https://picsum.photos/175" class="site-logo">
 				<?php
 				the_custom_logo();
 				if ( is_front_page() && is_home() ) :
@@ -109,12 +107,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 						?>
 				</div>
 			</nav>
-
-			<div class="endorsed-logo">
-				<img class="footer-logo" src="https://ecee.engineering.asu.edu/wp-content/themes/asu-divi/assets/endorsed-logos/asu_fultonengineering_horiz_rgb_white_150ppi.png" alt="ASU endorsed logo: Ira A. Fulton Schools of Engineering.">
-			</div>
-
 		</div><!-- .site-header -->
+
+		<?php if ( is_active_sidebar( 'masthead-footer' ) ) : ?>
+			<div class="site-footer widget-area" role="complementary">
+				<hr>
+				<?php dynamic_sidebar( 'masthead-footer' ); ?>
+			</div><!-- .site-footer -->
+		<?php endif; ?>
+
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

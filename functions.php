@@ -12,6 +12,8 @@ add_action( 'after_setup_theme', 'asufaculty_carbonfields_metabox_load' );
 function asufaculty_carbonfields_metabox_load() {
 	require_once 'vendor/autoload.php';
 	\Carbon_Fields\Carbon_Fields::boot();
+
+	require get_template_directory() . '/inc/carbon-fields-widgets.php';
 }
 
 if ( ! function_exists( 'asufaculty_setup' ) ) :
@@ -48,6 +50,17 @@ if ( ! function_exists( 'asufaculty_setup' ) ) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
+
+		add_theme_support(
+			'custom-logo',
+			array(
+				'height' => 175,
+				'width' => 175,
+				'flex-height' => true,
+				'flex-width' => true,
+				'header-text' => array(),
+			)
+		);
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
@@ -148,6 +161,19 @@ add_action( 'after_setup_theme', 'asufaculty_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function asufaculty_widgets_init() {
+
+	$args = array(
+		'id'            => 'masthead-footer',
+		'class'         => 'masthead-footer',
+		'name'          => esc_html__( 'Navigation Footer', 'asufaculty' ),
+		'description'   => esc_html__( 'Include endorsed logo and social media widgets here.', 'asufaculty' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<div class="widget-title">',
+		'after_title'   => '</div>',
+	);
+
+	register_sidebar( $args );
 	$args = array(
 		'id'            => 'below-primary',
 		'class'         => 'below-primary',
@@ -180,7 +206,7 @@ add_action( 'widgets_init', 'asufaculty_widgets_init' );
  * Enqueue scripts and styles.
  */
 function asufaculty_scripts() {
-	 wp_enqueue_style( 'pure', 'https://unpkg.com/purecss@1.0.0/build/pure-min.css' );
+	wp_enqueue_style( 'pure', 'https://unpkg.com/purecss@1.0.0/build/pure-min.css' );
 	wp_enqueue_style( 'asufaculty-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'roboto-font', 'https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i' );
 
@@ -228,6 +254,7 @@ require get_template_directory() . '/inc/pure-menu-walker.php';
 require get_template_directory() . '/inc/custom-post-type.php';
 require get_template_directory() . '/inc/custom-taxonomy.php';
 require get_template_directory() . '/inc/carbon-fields-meta.php';
+// require get_template_directory() . '/inc/carbon-fields-widgets.php';
 require get_template_directory() . '/inc/p2p-definition.php';
 
 

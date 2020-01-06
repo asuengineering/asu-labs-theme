@@ -6,3 +6,86 @@
 		max-width: 100%;
 	}
 }
+
+// Additional colors for the super footer. Includes white
+$asu-footer-grey: #cccccc;
+$asu-footer-black: #1e1e1e;
+$white: #ffffff;
+
+#masthead .site-footer {
+	color: $white;
+	padding: 1em 1.25em;
+
+	a {
+		color: $asu-footer-grey;
+		border-bottom: 1px dotted $asu-footer-grey;
+		text-decoration: none;
+
+		&:hover {
+			color: $white;
+			border-bottom: 1px dotted $white;
+		}
+	}
+
+	/* Endorsed logo transform on hover */
+	.carbon_fields_asu-super-footer-endorsed-logo {
+		.footer-logo {
+			transition-duration: 0.5s;
+			transform: scale3d(1, 1, 1);
+			transform-origin: top left;
+			// Shifted to deal with padding embedded in the offical versions of each logo
+			margin: -15px 0 0 -15px;
+
+			&:hover {
+				transform: scale3d(1.05, 1.05, 1.05);
+				cursor: pointer;
+			}
+		}
+
+		.footer-logo-link {
+			border-bottom: none;
+			display: inline-block;
+		}
+
+		.phone-link svg {
+			margin-right: 10px;
+		}
+
+		p {
+			margin: 0.5em 0 0.5em;
+			font-size: 1rem;
+		}
+	}
+
+	.carbon_fields_asu-super-footer-social-media {
+		.social-icons {
+			float: none;
+			text-align: left;
+			padding: 0 0 1em 0;
+			margin: 0;
+
+			li {
+				margin-left: 0;
+				padding-left: 0;
+				margin-right: 6px;
+				display: inline-block;
+			}
+
+			a {
+				color: #a9a9a9;
+				font-size: 30px;
+				border-bottom: none;
+				line-height: 1;
+
+				&:hover {
+					color: #ffffff;
+				}
+			}
+		}
+	}
+
+	.btn.contribute {
+		border-bottom: none;
+		color: $white;
+	}
+}
