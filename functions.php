@@ -212,7 +212,7 @@ function asufaculty_scripts() {
 
 	wp_enqueue_script( 'asufaculty-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 	wp_enqueue_script( 'asufaculty-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-	wp_enqueue_script( 'font-awesome-five', get_template_directory_uri() . '/vendor/fontawesome-pro/js/all.js', false, '5.7.2' );
+	wp_enqueue_script( 'font-awesome-five', get_template_directory_uri() . '/vendor/fontawesome-pro/js/all.js', false, '5.12.0' );
 	wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/js/custom.js', array( 'jquery' ), null, true );
 	wp_enqueue_script( 'asumobile-js', get_template_directory_uri() . '/js/asumobile.js', array( 'jquery' ), null, true );
 
