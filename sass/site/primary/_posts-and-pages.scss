@@ -1,35 +1,35 @@
 .sticky {
-	display: block;
+  display: block;
 }
 
 .hentry {
-	margin: 0 0 1.5em;
+  margin: 0 0 1.5em;
 }
 
 .updated:not(.published) {
-	display: none;
+  display: none;
 }
 
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+  margin: 1.5em 0 0;
 }
 
 .page-links {
-	clear: both;
-	margin: 0 0 1.5em;
+  clear: both;
+  margin: 0 0 1.5em;
 }
 
 // Single posts. Specific to native post feature.
 .single-post {
-	.entry-header {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		background-color: #f0f0f0;
-		padding: 2em 0;
-	}
+  .entry-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 2em 0;
+  }
 }
 
 // Single posts + default rules for any single-{}.php page.
@@ -53,9 +53,10 @@
 		margin-top: 0.5em;
 		padding-top: 0.5em;
 
-		svg {
-			margin-right: 10px;
-		}
+    > span:after {
+      content: "|";
+      padding: 0 20px;
+    }
 
 		> span:after {
 			content: "|";
@@ -107,14 +108,14 @@
 		flex-wrap: nowrap;
 		justify-content: flex-end;
 
-		.breadcrumbs {
-			flex: 1 1 auto;
-			align-self: flex-start;
-		}
+    .breadcrumbs {
+      flex: 1 1 auto;
+      align-self: flex-start;
+    }
 
-		svg {
-			margin-right: 10px;
-		}
+    svg {
+      margin-right: 10px;
+    }
 
 		&-group > span:after {
 			content: "|";
