@@ -6,8 +6,7 @@ A theme for WordPress to help build and organize small group websites. Ideal for
 
 This theme brings to life several templates and custom post types that we commonly found within our collection of working small & medium sized lab groups. It is a parent theme and includes the following assets.
 
-- ASU Header and Footer, version 4.6
-- Font Awesome Pro, version 5.2
+- Font Awesome Pro, version 5.12.0
 - Google Font "Roboto", part of the ASU Web Standards.
 - Carbon Fields v3.0, loaded as a part of the theme.
 
@@ -21,6 +20,17 @@ To form the relationships needed between our custom post types, this theme requi
 ![Sparky's Trident](https://brandguide.asu.edu/sites/default/files/styles/panopoly_image_original/public/asu_brandhq_images_master_pitchfork_0.png?itok=CdnAzLZW)
 
 ## Enhancements
+
+### Version 2.0
+
+- The theme no longer includes certain elements from the ASU global header and footer packages. These elements were designed for a layout and mobile experience that differs from this site's vertical menu orientation. The template still includes the global ASU Google Analytics tag.
+- Instead, the theme now has an off-canvas mobile menu which tucks the navigation out of the way when the screen size narrows beyond a certain point. The menu slides in from the left when it is needed again.
+- The menu area is now a whole lot more customizable. Users will now have the option to add:
+  - a custom site image (logo)
+  - custom font awesome icons for each menu entry
+  - an endorsed logo in the menu "footer"
+  - social media icons and general contact information
+- The Font Awesome 5 library was updated to version 5.12.0
 
 ### Version 1.6
 
