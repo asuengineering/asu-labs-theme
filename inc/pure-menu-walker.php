@@ -7,6 +7,11 @@
 
 class pure_menu_walker extends Walker_Nav_Menu {
 
+	function load_icon_markup() {
+		$icon = '';
+
+	}
+	
 	var $db_fields = array(
 		'parent' => 'menu_item_parent',
 		'id'     => 'db_id',
@@ -27,6 +32,7 @@ class pure_menu_walker extends Walker_Nav_Menu {
 		global $wp_query;
 
 		$caret = '';
+		$icon  = carbon_get_nav_menu_item_meta( $item->ID, 'menu_icon_markup' );
 
 		$indent = ( $depth ) ? '' : '';
 		// $indent = ($depth) ? str_repeat("t", $depth) : '';
@@ -69,6 +75,7 @@ class pure_menu_walker extends Walker_Nav_Menu {
 
 		$item_output  = $args->before;
 		$item_output .= '<a' . $attributes . ' class="pure-menu-link">';
+		$item_output .= $icon;
 		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
 		$item_output .= $caret;
 		$item_output .= '</a>';

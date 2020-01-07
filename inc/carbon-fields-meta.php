@@ -103,6 +103,14 @@ function asufaculty_carbonfields_register_facultycpt_meta() {
 				->set_value_type( 'url' ),
 		)
 	);
+
+	Container::make( 'nav_menu_item', 'Menu Icons' )
+		->add_fields(
+			array(
+				Field::make( 'text', 'menu_icon_markup', 'Icon Markup' )
+					->set_help_text( '<a href="https://fontawesome.com/icons?d=gallery" target="_blanK">Font Awesome 5</a> icon markup. Free and pro available.<br/>Latest version: 5.12' ),
+			)
+		);
 }
 
 // Separate function for select box in research project post meta area. Helps with retrieving the values later.

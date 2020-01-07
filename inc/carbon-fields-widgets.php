@@ -12,10 +12,11 @@ use Carbon_Fields\Field;
 class ASUSuperFooterEndorsedLogo extends Widget {
 	// Register widget function. Must have the same name as the class
 	function __construct() {
-		$this->setup( 'asu-super-footer-endorsed-logo', 'ASU Endorsed Logo Widget', 'Displays an ASU endorsed logo and related textual content recommended by the ASU Brand Standards ', array(
-			Field::make( 'select', 'logo-image', 'Endorsed Logo' )
+		$this->setup( 'asu-super-footer-endorsed-logo', 'ASU Logo Widget', 'Displays an ASU logo and related textual content recommended by the ASU Brand Standards ', array(
+			Field::make( 'select', 'logo-image', 'ASU Logo' )
 				->add_options( array(
 					'' => 'No logo required.',
+					'no-endorse' => 'Official Logo (No Endorsement)',
 					'ked' => 'ASU KED',
 					'engineering' => 'ASU Engineering',
 					'sustainability' => 'ASU Sustainability',
@@ -54,6 +55,11 @@ class ASUSuperFooterEndorsedLogo extends Widget {
 				$logosrc='asu_library_horiz_rgb_white_150ppi_0.png';
 				$logoalt='ASU Library (endorsed logo)';
 				break;
+			case 'no-endorse':
+				$logourl='https://asu.edu';
+				$logosrc='asu_university_horiz_rgb_white_150.png';
+				$logoalt='Arizona State University';
+				break;
 			default:
 				$logourl='';
 				$logosrc='';
@@ -63,7 +69,7 @@ class ASUSuperFooterEndorsedLogo extends Widget {
 
 		if (! empty($instance['logo-image'])) {
 			echo '<div><a class="footer-logo-link" href="' . $logourl . '">';
-			echo '<img class="footer-logo" src="' . get_template_directory_uri() . '/images/endorsed-logos/' . $logosrc . '" alt="' . $logoalt . '">';
+			echo '<img class="footer-logo" src="' . get_template_directory_uri() . '/images/university-logos/' . $logosrc . '" alt="' . $logoalt . '">';
 			echo '</a></div>';
 		}
 

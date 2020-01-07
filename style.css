@@ -823,11 +823,11 @@ a.toggle.close {
   #menu .pure-menu-has-children > .pure-menu-link:after {
     padding-left: 0;
     content: ""; }
-  #menu .pure-menu-has-children svg {
-    margin-left: 5px; }
-  #menu #home-icon-main-nav svg {
+  #menu .pure-menu-link svg {
     margin-right: 10px; }
-  #menu .pure-menu-expanded > .pure-menu-link > svg {
+    #menu .pure-menu-link svg.fa-caret-down {
+      margin: 0 10px 0 5px; }
+  #menu .pure-menu-expanded > .pure-menu-link > svg.fa-caret-down {
     transform: rotate(180deg); }
 
 /*************************************************/

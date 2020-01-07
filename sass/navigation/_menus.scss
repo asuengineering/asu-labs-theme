@@ -209,15 +209,15 @@ a.toggle.close {
 		content: "";
 	}
 
-	.pure-menu-has-children svg {
-		margin-left: 5px;
-	}
-
-	#home-icon-main-nav svg {
+	.pure-menu-link svg {
 		margin-right: 10px;
+
+		&.fa-caret-down {
+			margin: 0 10px 0 5px;
+		}
 	}
 
-	.pure-menu-expanded > .pure-menu-link > svg {
+	.pure-menu-expanded > .pure-menu-link > svg.fa-caret-down {
 		transform: rotate(180deg);
 	}
 }
