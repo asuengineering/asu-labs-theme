@@ -67,13 +67,11 @@
     <script src="{{ site.baseurl }}/assets/vendor/lightgallery/js/lightgallery.min.js"></script>
     <script src="{{ site.baseurl }}/assets/vendor/lightgallery/js/lg-thumbnail.min.js"></script>
     <script type="text/javascript">
-      lightGallery(document.getElementById("lightbox"), {
-        thumbnail: true
-      });
-
-      lightGallery(document.getElementById("lightbox-2"), {
-        thumbnail: true
-      });
+      // See https://github.com/sachinchoolur/lightgallery.js/issues/62#issuecomment-298208848
+      var galleries = document.getElementsByClassName('lightbox');
+      for(var i = 0; i < galleries.length; i++) {
+        lightGallery(galleries[i]);
+      }
     </script>
   </body>
 </html>

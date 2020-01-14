@@ -5,7 +5,7 @@ title: "Individual Profiles"
 
 Individual profiles pages can be created by following the People->Add New Person links from the dashboard.
 
-## Screenshots ##
+## Screenshots
 
 <div id="lightbox" class="lightbox">
     <a href="../assets/img/person-front.jpg">
@@ -16,7 +16,7 @@ Individual profiles pages can be created by following the People->Add New Person
     </a>
 </div>
 
-## Minimum Information Needed ##
+## Minimum Information Needed
 
 To create a good-looking profile page for a member of your group, you need the following information:
 
@@ -28,7 +28,7 @@ You will also need to decide how this person should be categorized within the di
 Profile pages should also include a photo of the person being featured. The photo should be at least 600px x 600px. A square crop is preferred. If a photo is not included in the profile, a default ASU image will appear in its place.
 {: .photo}
 
-## Completed Profile ## 
+## Completed Profile
 
 In addition to the information above, a complete profile can include any of the following details.
 
@@ -38,7 +38,7 @@ In addition to the information above, a complete profile can include any of the 
 - a building or office location + a link to ASU Maps
 - social media links to Twitter, LinkedIn, Facebook or Instagram.
 
-## Technical Details ##
+## Technical Details
 
 The `person` template includes several post meta fields for the following information.
 
@@ -70,7 +70,7 @@ Building/Location
 
 Map URL
 : If a URL is provided in this field, it will turn the building/location text above into a link to the specified URL.
-: Typically used to provide a link to [ASU Maps](https://www.asu.edu/map/interactive/) application. 
+: Typically used to provide a link to [ASU Maps](https://www.asu.edu/map/interactive/) application.
 
 Social Media URLs
 : When indicated, a small icon will be present on the profile screen near the iSearch URL for each of the platforms represented.

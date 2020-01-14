@@ -1,6 +1,9 @@
 <aside>
+  <a class="skip-link visuallyhidden focusable" href="#main"
+    >Skip to Main Content</a
+  >
   <p class="intro">{{ site.subtitle }}</p>
-  <a class="skip-link visuallyhidden focusable" href="#main">Skip to Main Content</a>
+
   <nav class="sidebar-nav" role="navigation">
     <ul>
       {% for link in site.navigation %} {% if link.internal == true %}
@@ -14,4 +17,19 @@
       {% endif %} {% endfor %}
     </ul>
   </nav>
+
+  <div class="theme">
+    <p style="font-size:1.25rem; font-weight:700;">Theme Details</p>
+    <p>
+      <strong>Latest Release: </strong><br />Version 2.0<br />January 8, 2020
+    </p>
+    <p><strong>Last Documentation Update: </strong><br />January 8, 2020</p>
+    <p>
+      <a
+        href="https://trek-demo-faculty-setuptesting.pantheonsite.io/"
+        target="_blank"
+        >Enterprise Lab Group Demo Site</a
+      >
+    </p>
+  </div>
 </aside>

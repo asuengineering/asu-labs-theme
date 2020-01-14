@@ -37,23 +37,29 @@ navigation:
   - text: Quick Start Guide
     url: quick-start/
     internal: true
+  - text: Connected Content
+    url: connections/
+    internal: true
   - text: People
     url: people/
     internal: true
   - text: Directory Page
     url: directory/
     internal: true
-  - text: Research Topics
-    url: research-topic/
-    internal: true
   - text: Research Projects
     url: research/
+    internal: true
+  - text: Research Themes
+    url: research-theme/
     internal: true
   - text: Publications
     url: publications/
     internal: true
   - text: Labels and Categories
     url: categories/
+    internal: true
+  - text: Customizing the Menu
+    url: sidebar/
     internal: true
   - text: About this theme
     url: about/
