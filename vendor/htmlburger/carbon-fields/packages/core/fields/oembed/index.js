@@ -178,8 +178,7 @@ function handler( props ) {
 
 		switch ( type ) {
 			case 'FETCH_EMBED_CODE':
-				// eslint-disable-next-line
-				let request = $.get( window.wpApiSettings.root + 'oembed/1.0/proxy', {
+				const request = window.jQuery.get( window.wpApiSettings.root + 'oembed/1.0/proxy', {
 					url: payload,
 					_wpnonce: window.wpApiSettings.nonce
 				} );

@@ -8,24 +8,25 @@
     "packages": [
         {
             "name": "htmlburger/carbon-fields",
-            "version": "v3.1.10",
+            "version": "v3.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/htmlburger/carbon-fields.git",
-                "reference": "deee40390e8cd1d50ee215522e47689ef6b4e404"
+                "reference": "d913a5148cb9dc61ed239719c747f4ebb513003f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/htmlburger/carbon-fields/zipball/deee40390e8cd1d50ee215522e47689ef6b4e404",
-                "reference": "deee40390e8cd1d50ee215522e47689ef6b4e404",
+                "url": "https://api.github.com/repos/htmlburger/carbon-fields/zipball/d913a5148cb9dc61ed239719c747f4ebb513003f",
+                "reference": "d913a5148cb9dc61ed239719c747f4ebb513003f",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3"
+                "php": ">=5.6.20"
             },
             "require-dev": {
-                "mockery/mockery": "^0.9.7",
-                "phpunit/phpunit": "~4.8"
+                "mockery/mockery": "1.3.6",
+                "phpunit/phpunit": "7.5.20|9.6.3",
+                "yoast/phpunit-polyfills": "^1.0"
             },
             "type": "library",
             "autoload": {
@@ -137,7 +138,13 @@
             ],
             "description": "WordPress developer-friendly custom fields for post types, taxonomy terms, users, comments, widgets, options and more.",
             "homepage": "http://carbonfields.net/",
-            "time": "2019-12-17T09:45:38+00:00"
+            "support": {
+                "docs": "http://carbonfields.net/docs/",
+                "email": "wordpress@htmlburger.com",
+                "issues": "https://github.com/htmlburger/carbon-fields/issues",
+                "source": "https://github.com/htmlburger/carbon-fields"
+            },
+            "time": "2023-11-28T15:52:46+00:00"
         },
         {
             "name": "justintadlock/hybrid-breadcrumbs",
@@ -179,6 +186,11 @@
             "keywords": [
                 "wordpress"
             ],
+            "support": {
+                "forum": "https://themehybrid.com/board/topics",
+                "issues": "https://github.com/justintadlock/hybrid-breadcrumbs/issues",
+                "source": "https://github.com/justintadlock/hybrid-breadcrumbs/tree/master"
+            },
             "time": "2018-10-23T19:57:54+00:00"
         }
     ],
@@ -189,5 +201,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }

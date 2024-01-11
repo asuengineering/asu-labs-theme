@@ -35,6 +35,10 @@ import { fromSelector, withConditionalLogic } from '@carbon-fields/core';
  * @return {Object[]}
  */
 function getFieldsFromFieldsHolder( fieldsHolder, allFields, excludedIds = [] ) {
+	if ( typeof fieldsHolder === 'undefined' ) {
+		return [];
+	}
+
 	return pick( allFields, difference( map( fieldsHolder.fields, 'id' ), excludedIds ) );
 }
 
@@ -150,8 +154,10 @@ function output( props, fields ) {
 
 			if ( isNestedComplex ) {
 				const groupField = find( get( fields, pathPrefix ), [ 'name', chunk ] );
-
-				pathPrefix = `${ groupField.id }.value`;
+				
+				if ( groupField ) {
+					pathPrefix = `${ groupField.id }.value`;
+				}
 
 				depth--;
 			}

@@ -52,11 +52,18 @@ class Router {
 			'permission_callback' => 'allow_access',
 			'methods'             => 'GET',
 		),
+		'association_options' => array(
+			'path'                => '/association/options',
+			'callback'            => 'get_association_options',
+			'permission_callback' => 'allow_access',
+			'methods'             => 'GET',
+		),
 		'attachment_data' => array(
 			'path'                => '/attachment',
 			'callback'            => 'get_attachment_data',
 			'permission_callback' => 'allow_access',
 			'methods'             => 'GET',
+			'args'                => 'attachment_data_args_schema',
 		),
 		'block_renderer' => array(
 			'path'                => '/block-renderer',
@@ -241,8 +248,24 @@ class Router {
 			if ( ! $field->get_visible_in_rest_api() ) {
 				continue;
 			}
-			$values[ $field->get_base_name() ] = Helper::get_value( $object_id, $container_type, '', $field->get_base_name() );
+
+			$value = Helper::get_value( $object_id, $container_type, '', $field->get_base_name() );
+
+			if ( apply_filters( 'carbon_fields_rest_api_return_attachments_as_urls', false, $value, $field, $object_id ) ) {
+				$attachments_class = [
+					"Carbon_Fields\Field\Media_Gallery_Field",
+					"Carbon_Fields\Field\File_Field",
+					"Carbon_Fields\Field\Image_Field"
+				];
+
+				if ( in_array( get_class( $field ), $attachments_class ) ) {
+					$value = Helper::get_attachments_urls($value);
+				}
+			}
+
+			$values[ $field->get_base_name() ] = $value;
 		}
+
 		return $values;
 	}
 
@@ -291,7 +314,7 @@ class Router {
 	}
 
 	/**
-	 * Get Carbon Fields association options data.
+	 * Get Carbon Fields association selected options.
 	 *
 	 * @access public
 	 *
@@ -331,6 +354,29 @@ class Router {
 		}
 
 		return $return_value;
+	}
+
+	/**
+	 * Get Carbon Fields association options data.
+	 *
+	 * @access public
+	 *
+	 * @return array
+	 */
+	public function get_association_options() {
+		$page = isset( $_GET['page'] ) ? absint( $_GET['page'] )              : 1;
+		$term = isset( $_GET['term'] ) ? sanitize_text_field( $_GET['term'] ) : '';
+
+		$container_id = $_GET['container_id'];
+		$field_id     = $_GET['field_id'];
+
+		/** @var \Carbon_Fields\Field\Association_Field $field */
+		$field = Helper::get_field( null, $container_id, $field_id );
+
+		return $field->get_options( array(
+			'page' => $page,
+			'term' => $term,
+		) );
 	}
 
 	/**
@@ -417,6 +463,26 @@ class Router {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Returns the schema of the accepted arguments.
+	 *
+	 * @return array
+	 */
+	public function attachment_data_args_schema() {
+		return array(
+			'type'       => array(
+				'type'        => 'string',
+				'required'    => true,
+				'description' => __( 'The requested type: ID or URL.', 'carbon-fields' ),
+			),
+			'value'    => array(
+				'type'        => 'string',
+				'required'    => true,
+				'description' => __( 'The ID / URL of the attachment', 'carbon-fields' ),
+			),
+		);
 	}
 
 	/**

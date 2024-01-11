@@ -2,7 +2,7 @@
  * External dependencies.
  */
 const webpack = require( 'webpack' );
-const merge = require( 'webpack-merge' );
+const { merge } = require( 'webpack-merge' );
 
 /**
  * Internal dependencies.
@@ -25,7 +25,8 @@ module.exports = [
 		externals: Object.assign( {}, wpPackages.externals, {
 			'lodash': 'lodash',
 			'react': 'React',
-			'react-dom': 'ReactDOM'
+			'react-dom': 'ReactDOM',
+			'jquery': 'jQuery',
 		} )
 	} ),
 	merge( base, config, {

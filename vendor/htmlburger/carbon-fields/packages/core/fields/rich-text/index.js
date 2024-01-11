@@ -1,9 +1,13 @@
 /**
  * External dependencies.
  */
-import { Component } from '@wordpress/element';
+import { createRef, Component } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
-import { isString, template } from 'lodash';
+import {
+	isString,
+	template,
+	debounce
+} from 'lodash';
 import cx from 'classnames';
 
 class RichTextField extends Component {
@@ -15,9 +19,8 @@ class RichTextField extends Component {
 	constructor() {
 		super();
 
-		this.node = null;
+		this.node = createRef();
 		this.editor = null;
-		this.cancelResizeObserver = null;
 	}
 
 	/**
@@ -28,6 +31,24 @@ class RichTextField extends Component {
 	componentDidMount() {
 		if ( this.props.visible ) {
 			this.timer = setTimeout( this.initEditor, 250 );
+
+			const resizeObserver = new ResizeObserver( debounce( () => {
+				if ( this.editor ) {
+					/**
+					 * On each call of the `wpAutoResize` method the global `wpActiveEditor` reference
+					 * is changed to the element that will be resized. In some cases this is causing
+					 * conflicts with other plugins so we need to preserve and restore the previously
+					 * referenced element.
+					 */
+					const activeEdtior = window.wpActiveEditor;
+					this.editor.execCommand( 'wpAutoResize', undefined, undefined, { skip_focus: true } );
+					window.wpActiveEditor = activeEdtior;
+				}
+			}, 100 ) );
+
+			resizeObserver.observe( this.node.current );
+
+			this.observer = resizeObserver;
 		}
 	}
 
@@ -38,6 +59,10 @@ class RichTextField extends Component {
 	 */
 	componentWillUnmount() {
 		clearTimeout( this.timer );
+
+		if ( typeof this.observer !== 'undefined' ) {
+			this.observer.disconnect();
+		}
 
 		this.destroyEditor();
 	}
@@ -81,11 +106,13 @@ class RichTextField extends Component {
 			? template( field.media_buttons )( { id } )
 			: null;
 
+		const shouldRenderTabs = field.rich_editing && window.tinyMCEPreInit.qtInit[ field.settings_reference ];
+
 		return (
 			<div
 				id={ `wp-${ id }-wrap` }
 				className={ cx( classes ) }
-				ref={ ( node ) => this.editorNode = node }
+				ref={ this.node }
 			>
 				{ field.media_buttons && (
 					<div id={ `wp-${ id }-media-buttons` } className="hide-if-no-js wp-media-buttons">
@@ -93,7 +120,7 @@ class RichTextField extends Component {
 					</div>
 				) }
 
-				{ field.rich_editing && (
+				{ shouldRenderTabs && (
 					<div className="wp-editor-tabs">
 						<button type="button" id={ `${ id }-tmce` } className="wp-switch-editor switch-tmce" data-wp-editor-id={ id }>
 							{ __( 'Visual', 'carbon-fields-ui' ) }
@@ -127,7 +154,6 @@ class RichTextField extends Component {
 	 */
 	initEditor = () => {
 		const { id, field } = this.props;
-
 		if ( field.rich_editing ) {
 			const editorSetup = ( editor ) => {
 				this.editor = editor;
@@ -138,8 +164,9 @@ class RichTextField extends Component {
 					this.handleChange( editor.getContent() );
 				} );
 			};
+
 			const editorOptions = {
-				...window.tinyMCEPreInit.mceInit.carbon_settings,
+				...window.tinyMCEPreInit.mceInit[ field.settings_reference ],
 				selector: `#${ id }`,
 				setup: editorSetup
 			};
@@ -147,15 +174,17 @@ class RichTextField extends Component {
 			window.tinymce.init( editorOptions );
 		}
 
-		const quickTagsOptions = {
-			...window.tinyMCEPreInit,
-			id
-		};
+		const quickTagsOptions = { ...window.tinyMCEPreInit.qtInit[ field.settings_reference ] };
 
-		window.quicktags( quickTagsOptions );
+		if ( quickTagsOptions ) {
+			const qtagInstance = window.quicktags( {
+				...quickTagsOptions,
+				id
+			} );
 
-		// Force the initialization of the quick tags.
-		window.QTags._buttonsInit();
+			// Force the initialization of the quick tags.
+			window.QTags._buttonsInit( qtagInstance.id );
+		}
 	}
 
 	/**
