@@ -21,6 +21,14 @@ To form the relationships needed between our custom post types, this theme requi
 
 ## Enhancements
 
+### Version 2.1
+
+This theme is no longer supported by ASU Engineering as a viable way to build faculty website. This is due to the change in policy with the ASU Unity project to allow for "faculty" sites to look different than "regular" sites. Now, all sites under \*.asu.edu are required to follow the brand standards.
+
+However, the following update was made to the theme to support the 70+ sites that are still actively using the theme. (Many current users are attempting to recover content and convert their sites to Pitchfork.)
+
+- Update Carbon Fields library to latest version via composer. Fixes an issue where metaboxes were no longer visible in WP core 6.0+
+
 ### Version 2.0
 
 - The theme no longer includes certain elements from the ASU global header and footer packages. These elements were designed for a layout and mobile experience that differs from this site's vertical menu orientation. The template still includes the global ASU Google Analytics tag.
